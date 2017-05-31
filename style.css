@@ -6,8 +6,11 @@
     .nav-justified {
         width: 50%;
     }
-}
 
-#services .center-align{
-    margin: 20px auto;
+}
+#back{
+    background: #100a00;
+}
+#text{
+    color: orangered;
 }
