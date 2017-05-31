@@ -31,7 +31,7 @@ $(document).ready(function () {
 
         {
             "q": "Is there a service charge on fixcell warranty repair??",
-            "a": "There is no service charge on concerns/complaints regarding repairs that are raised within 3 days of delivery of product. However, we charge a nominal service fee of Rs.299 as service/labor charge if the complaint is raised after 3 days post-delivery."
+            "a": "There is no service charge on concerns/complaints regarding repair that are raised within 3 days of delivery of product. However, we charge a nominal service fee of Rs.299 as service/labor charge if the complaint is raised after 3 days post-delivery."
         },
         {
             "q": "How safe is my mobile/tablet with fixcell.in? ",

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fixcell</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/bootstrap.min.css"
+          rel="stylesheet"><!-- Optional theme -->
+    <link href="/css/bootstrap-theme.min.css"
+          rel="stylesheet"><!-- Latest compiled and minified JavaScript -->
+    <script src="/jquery-3.1.1.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <link href="/style.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
+</head>
+<body>
+<div class="navbar navbar-inverse"
+     style="-webkit-border-radius: 0;-moz-border-radius: 0;border-radius: 0; margin-bottom: 0px;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar"
+                    style="vertical-align: middle; margin-top: 15px">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/" style="height: auto;">
+                <img src="/images/fixcell.png" alt="fixcell" style="display: inherit;"/>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="nav nav-pills nav-justified navbar-right" style="margin-top: 10px;">
+                <li><a href="/">Home</a></li>
+                <li class="active"><a href="/repair/">Repair</a></li>
+                <li><a href="/services">Service</a></li>
+                <li><a href="/faq/">FAQ</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div id="loader"></div>
+</div>
+
+<div class="row" id="content" hidden style="margin: 20px;">
+</div>
+
+<script>
+    var brands = [
+        [1, "Apple", "/images/apple.png"],
+        [2, "Samsung", "/images/samsung.png"]
+    ];
+
+    function addToContent(brand) {
+        var card =
+            '<div class="thumbnail col-md-3 center-block text-center" >' +
+            '<img src="' + brand[2] + '">' +
+            '<h2 style="vertical-align: bottom;">' + brand[1] + '</h2>' +
+            '</div>';
+        $("#content").append(card);
+    }
+    for (var i = 0; i < brands.length; i++) {
+        addToContent(brands[i]);
+    }
+    $("#loader").hide();
+    $("#content").show();
+</script>
+
+</body>
+</html>
+
+<style>
+    .thumbnail {
+        cursor: pointer;
+        height: 180px;
+        margin:10px;
+    }
+
+    .thumbnail:hover {
+        background-color: #FF3E01;
+    }
+</style>
