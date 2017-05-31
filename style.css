@@ -6,4 +6,11 @@
     .nav-justified {
         width: 50%;
     }
+
+}
+#back{
+    background: #100a00;
+}
+#text{
+    color: orangered;
 }
