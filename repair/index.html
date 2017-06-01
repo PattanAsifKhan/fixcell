@@ -51,7 +51,14 @@
         <label for="brand-list">Brand</label>
         <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-            <input class="form-control" id="brand-list" placeholder="Select Brand">
+            <input class="form-control" id="brand-list" placeholder="Select Brand (Start Typing name of brand)">
+        </div>
+        <br>
+        <label for="brand-list">Model</label>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+            <input class="form-control" id="model-list"
+                   placeholder="Select Model (Start Typing first few letters model)">
         </div>
     </div>
 </div>
@@ -62,7 +69,11 @@
     $("#loader").hide();
     $("#content-div").show();
     $("#brand-list").autocomplete({
-        source: brands
+            source: brands,
+            minLength: 0
+        }
+    ).focus(function () {
+        $(this).search($(this).val());
     });
 </script>
 
