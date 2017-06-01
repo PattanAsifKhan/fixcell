@@ -49,7 +49,10 @@
 <div id="content-div" class="thumbnail center-block" hidden style="margin-top: 5%">
     <div class="form-group">
         <label for="brand-list">Brand</label>
-        <input class="form-control" id="brand-list" placeholder="Select Brand">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+            <input class="form-control" id="brand-list" placeholder="Select Brand">
+        </div>
     </div>
 </div>
 
@@ -63,5 +66,13 @@
     });
 </script>
 
+
+<!--footer-->
+<div id="footer"></div>
+<script>
+    $(document).ready(function () {
+        $("#footer").load("/footer.html");
+    });
+</script>
 </body>
 </html>

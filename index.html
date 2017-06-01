@@ -101,7 +101,7 @@
     </div>
 </section>
 
-<section class="well" style="margin-top: 70px;">
+<section class="well" style="margin-top: 70px; margin-bottom: 0">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
@@ -130,5 +130,13 @@
         </div>
     </div>
 </section>
+
+<!--footer-->
+<div id="footer"></div>
+<script>
+    $(document).ready(function () {
+        $("#footer").load("/footer.html");
+    });
+</script>
 </body>
 </html>

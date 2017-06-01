@@ -37,3 +37,48 @@
     margin: 10%;
     padding: 1%;
 }
+
+
+.footer {
+    /*height: 280px;*/
+    width: 100%;
+    background: url(../images/footer-bg.jpg) repeat-x;
+    float: left;
+}
+
+.footer h2 {
+    color: #FF3E01;
+    font-size: 19px;
+    float: left;
+    font-weight: 400;
+    font-family: "Open Sans", sans-serif;
+}
+
+.footer ul li {
+    width: 33%;
+    float: left;
+    padding-bottom: 4px;
+}
+
+.footer ul li ul {
+    width: 100%;
+    float: left;
+    margin-top: 0;
+    padding: 13px 0 9px;
+}
+
+.footer ul li ul li {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.footer ul li ul li a {
+    color: #b2b2b2;
+}
+
+.footer ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
