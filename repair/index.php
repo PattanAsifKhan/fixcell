@@ -19,32 +19,36 @@
 <body>
 
 <?php
+//phpinfo();
 error_reporting(E_ALL | E_STRICT);
 ini_set("display_errors", 1);
 ini_set("html_errors", 1);
 
-$request = new HttpRequest();
-$request->setUrl('https://www.rollbase.com/rest/api/selectQuery');
-$request->setMethod(HTTP_METH_POST);
+$curl = curl_init();
 
-$request->setQueryData(array(
-    'sessionId' => '751138c752d24350a9261dc9732a22a3@352484058',
-    'query' => 'select distinct(brand), count(model) from phone group by brand',
-    'maxRows' => '1000000',
-    'output' => 'json'
+curl_setopt_array($curl, array(
+    CURLOPT_URL => "https://www.rollbase.com/rest/api/selectQuery?sessionId=751138c752d24350a9261dc9732a22a3%40352484058&query=select%20distinct(brand)%20from%20phone&maxRows=1000000&output=json",
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => "",
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 30,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => "POST",
+    CURLOPT_HTTPHEADER => array(
+        "cache-control: no-cache"
+    ),
 ));
 
-$request->setHeaders(array(
-    'postman-token' => 'fe2df17e-1d18-6dcb-e789-3d052920c8ee',
-    'cache-control' => 'no-cache'
-));
+$response = curl_exec($curl);
+$err = curl_error($curl);
 
-try {
-    $response = $request->send();
+curl_close($curl);
 
-    echo $response->getBody();
-} catch (HttpException $ex) {
-    echo $ex;
+if ($err) {
+    echo "cURL Error #:" . $err;
+} else {
+    //echo $response;
+    echo '<script>var brands = ' . $response . ';</script>';
 }
 ?>
 
@@ -95,7 +99,15 @@ try {
 </div>
 
 <script>
-    var brands = ["Apple", "Samsung"];
+    $("#model-list").val("");
+    $("#brand-list").val("");
+
+    var models = [];
+
+    for (var i = 0; i < brands.length; i++) {
+        brands.push(brands[0][0]);
+        brands.splice(0, 1);
+    }
 
     $("#loader").hide();
     $("#content-div").show();
@@ -103,8 +115,31 @@ try {
             source: brands,
             minLength: 0
         }
-    ).focus(function () {
-        $(this).search($(this).val());
+    );
+
+    $("#model-list").autocomplete({
+            source: models,
+            minLength: 0
+        }
+    );
+
+    if (models.length === 0) {
+        $("#model-list").prop("disabled",true);
+    }
+
+    $("#brand-list").bind('input change keyup click', function () {
+        var b = $(this).val()
+        $("#model-list").prop("disabled",true);
+        if (brands.indexOf(b) !== -1) {
+            $.getJSON('getModels.php?brand=' + b, function (data) {
+                models.splice(0);
+                for (var i = 0; i < data.length; i++) {
+                    models.push(data[i][0]);
+                }
+                if (models.length > 0)
+                    $("#model-list").prop("disabled",false);
+            })
+        }
     });
 </script>
 
