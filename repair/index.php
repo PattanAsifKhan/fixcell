@@ -17,6 +17,37 @@
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
 </head>
 <body>
+
+<?php
+error_reporting(E_ALL | E_STRICT);
+ini_set("display_errors", 1);
+ini_set("html_errors", 1);
+
+$request = new HttpRequest();
+$request->setUrl('https://www.rollbase.com/rest/api/selectQuery');
+$request->setMethod(HTTP_METH_POST);
+
+$request->setQueryData(array(
+    'sessionId' => '751138c752d24350a9261dc9732a22a3@352484058',
+    'query' => 'select distinct(brand), count(model) from phone group by brand',
+    'maxRows' => '1000000',
+    'output' => 'json'
+));
+
+$request->setHeaders(array(
+    'postman-token' => 'fe2df17e-1d18-6dcb-e789-3d052920c8ee',
+    'cache-control' => 'no-cache'
+));
+
+try {
+    $response = $request->send();
+
+    echo $response->getBody();
+} catch (HttpException $ex) {
+    echo $ex;
+}
+?>
+
 <div class="navbar navbar-inverse"
      style="-webkit-border-radius: 0;-moz-border-radius: 0;border-radius: 0; margin-bottom: 0px;">
     <div class="container-fluid">
