@@ -15,42 +15,11 @@
     <link href="/style.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
 </head>
 <body>
-
-<?php
-//phpinfo();
-error_reporting(E_ALL | E_STRICT);
-ini_set("display_errors", 1);
-ini_set("html_errors", 1);
-
-$curl = curl_init();
-
-curl_setopt_array($curl, array(
-    CURLOPT_URL => "https://www.rollbase.com/rest/api/selectQuery?sessionId=751138c752d24350a9261dc9732a22a3%40352484058&query=select%20distinct(brand)%20from%20phone&maxRows=1000000&output=json",
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_ENCODING => "",
-    CURLOPT_MAXREDIRS => 10,
-    CURLOPT_TIMEOUT => 30,
-    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    CURLOPT_CUSTOMREQUEST => "POST",
-    CURLOPT_HTTPHEADER => array(
-        "cache-control: no-cache"
-    ),
-));
-
-$response = curl_exec($curl);
-$err = curl_error($curl);
-
-curl_close($curl);
-
-if ($err) {
-    echo "cURL Error #:" . $err;
-} else {
-    //echo $response;
-    echo '<script>var brands = ' . $response . ';</script>';
-}
-?>
 
 <div class="navbar navbar-inverse"
      style="-webkit-border-radius: 0;-moz-border-radius: 0;border-radius: 0; margin-bottom: 0px;">
@@ -77,69 +46,64 @@ if ($err) {
     </div>
 </div>
 
-<div>
-    <div id="loader"></div>
-</div>
-
-<div id="content-div" class="thumbnail center-block" hidden style="margin-top: 5%">
+<div id="content-div" class="thumbnail center-block" style="margin-top: 5%">
     <div class="form-group">
         <label for="brand-list">Brand</label>
         <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-            <input class="form-control" id="brand-list" placeholder="Select Brand (Start Typing name of brand)">
+            <select class="form-control" id="brand-list"> </select>
         </div>
         <br>
         <label for="brand-list">Model</label>
         <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-            <input class="form-control" id="model-list"
-                   placeholder="Select Model (Start Typing first few letters model)">
+            <select class="form-control" id="model-list"></select>
         </div>
     </div>
 </div>
 
 <script>
-    $("#model-list").val("");
-    $("#brand-list").val("");
+    $brandSelect2 = $("#brand-list");
+    $modelSelect2 = $("#model-list");
 
-    var models = [];
+    $.getJSON('getBrands.php', function (data) {
+        $brandSelect2.select2({
+            placeholder: "Select Brand",
+            data: data
+        });
+        $brandSelect2.select2("val", "");
+    });
 
-    for (var i = 0; i < brands.length; i++) {
-        brands.push(brands[0][0]);
-        brands.splice(0, 1);
-    }
+    $modelSelect2.select2({
+        placeholder: "Select a Brand"
+    });
 
-    $("#loader").hide();
-    $("#content-div").show();
-    $("#brand-list").autocomplete({
-            source: brands,
-            minLength: 0
-        }
-    );
+    $modelSelect2.prop("disabled", true);
 
-    $("#model-list").autocomplete({
-            source: models,
-            minLength: 0
-        }
-    );
 
-    if (models.length === 0) {
-        $("#model-list").prop("disabled",true);
-    }
+    $brandSelect2.on("select2:select", function (e) {
+        var brand = $(e.currentTarget).val();
+        $modelSelect2.prop("disabled", true);
+        $modelSelect2.select2({
+            placeholder: "Loading..."
+        });
+        $modelSelect2.select2('val', '');
+        $modelSelect2.empty();
+        $.getJSON('getModels.php?brand=' + brand, function (data) {
+            if (data.length > 0) {
+                $modelSelect2.prop("disabled", false);
+                $modelSelect2.select2({
+                    placeholder: "Select Model",
+                    data: data
+                });
+                $modelSelect2.select2('val', '');
+            } else {
+                $modelSelect2.select2({
+                    placeholder: "No Model Available"
+                });
+            }
+        });
 
-    $("#brand-list").bind('input change keyup click', function () {
-        var b = $(this).val()
-        $("#model-list").prop("disabled",true);
-        if (brands.indexOf(b) !== -1) {
-            $.getJSON('getModels.php?brand=' + b, function (data) {
-                models.splice(0);
-                for (var i = 0; i < data.length; i++) {
-                    models.push(data[i][0]);
-                }
-                if (models.length > 0)
-                    $("#model-list").prop("disabled",false);
-            })
-        }
     });
 </script>
 
@@ -149,7 +113,25 @@ if ($err) {
 <script>
     $(document).ready(function () {
         $("#footer").load("/footer.html");
+        $("#brand-list").select2({
+            placeholder: "Loading..."
+        });
     });
 </script>
 </body>
 </html>
+
+<style>
+    .select2-selection__arrow {
+        display: none;
+    }
+
+    .select2-selection.select2-selection--single {
+        padding: 5px;
+        height: 40px;
+    }
+
+    .select2-container {
+        width: 100% !important;
+    }
+</style>

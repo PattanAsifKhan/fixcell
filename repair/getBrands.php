@@ -1,6 +1,7 @@
 <?php
-$brand = $_GET['brand'];
-
+error_reporting(E_ALL | E_STRICT);
+ini_set("display_errors", 1);
+ini_set("html_errors", 1);
 
 start:
 if (!file_exists('sessionid')) {
@@ -9,12 +10,13 @@ if (!file_exists('sessionid')) {
 }
 $sessionKey = file_get_contents("sessionid");
 
-$url = "https://www.rollbase.com/rest/api/selectQuery?" .
-    "sessionId=" . $sessionKey .
-    "&query=select%20model%20from%20phone%20where%20brand%3D'" . $brand .
-    "'&maxRows=1000000&output=json";
-
 $curl = curl_init();
+$url = "https://www.rollbase.com/rest/api/selectQuery?" .
+    "sessionId=" .
+    $sessionKey .
+    "&query=select%20distinct(brand)%20from%20phone" .
+    "&maxRows=1000000" .
+    "&output=json";
 
 curl_setopt_array($curl, array(
     CURLOPT_URL => $url,
@@ -25,25 +27,24 @@ curl_setopt_array($curl, array(
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     CURLOPT_CUSTOMREQUEST => "POST",
     CURLOPT_HTTPHEADER => array(
-        "cache-control: no-cache",
-        "postman-token: 73c664a1-0fe4-a3e3-bc2d-5ad97a90caa5"
+        "cache-control: no-cache"
     ),
 ));
 
 $response = curl_exec($curl);
 $err = curl_error($curl);
+
 $httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-
 curl_close($curl);
-
+//echo $httpcode;
 if ($httpcode == 403 or $httpcode != 200) {
-    include 'login.php';
+    include "login.php";
     goto start;
 }
 
 $response = str_replace('[', '', $response);
 $response = str_replace(']', '', $response);
 $response = '[' . $response . ']';
-echo $response;
 
+echo $response;
 ?>
