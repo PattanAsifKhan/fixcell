@@ -46,6 +46,17 @@
     </div>
 </div>
 
+<?php
+if (isset($_GET['brand']) and isset($_GET['model'])) {
+    $brand = $_GET['brand'];
+    $model = $_GET['model'];
+    echo $brand . " " . $model;
+} else {
+    header("location: /repair/");
+}
+?>
+
+
 <!--footer-->
 <div id="footer"></div>
 <script>
