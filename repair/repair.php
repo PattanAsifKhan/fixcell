@@ -49,14 +49,13 @@
 <?php
 
 
-error_reporting(E_ALL | E_STRICT);
-ini_set("display_errors", 1);
-ini_set("html_errors", 1);
+//error_reporting(E_ALL | E_STRICT);
+//ini_set("display_errors", 1);
+//ini_set("html_errors", 1);
 
 if (isset($_GET['brand']) and isset($_GET['model'])) {
     $brand = $_GET['brand'];
     $model = $_GET['model'];
-    echo $brand . " " . $model;
 
     start:
     if (!file_exists('sessionid')) {
@@ -64,12 +63,18 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
         goto start;
     }
     $sessionKey = file_get_contents("sessionid");
-    $id = 0;
+    $sessionKey = str_replace("@", "%40", $sessionKey);
 
     $url1 = "https://www.rollbase.com/rest/api/selectQuery?" .
         "sessionId=" . $sessionKey .
-        "&query=select%20id%20from%20phone%20where%20name%3D'" . $brand . "%20" . $model .
-        "'&maxRows=1000000&output=json";
+        "&query=select%20id%20from%20phone%20where%20name%3D'" .
+        $brand . " " . $model .
+        "'" .
+        "&maxRows=1000000" .
+        "&output=json";
+
+    $url1 = str_replace(" ","%20",$url1);
+//    echo $url1;
 
     $curl = curl_init();
 
@@ -82,7 +87,8 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST => "POST",
         CURLOPT_HTTPHEADER => array(
-            "cache-control: no-cache"
+            "cache-control: no-cache",
+            "postman-token: 2dfe9adb-4d5c-ddc0-c2b2-4be226a9e852"
         ),
     ));
 
@@ -90,19 +96,24 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
     $err = curl_error($curl);
     $httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
+//    echo $response;
+
     curl_close($curl);
 
     if ($httpcode == 403 or $httpcode != 200) {
         include 'login.php';
         goto start;
     }
-    echo $brand.$model.$response;
+//    echo $response;
+    $response = preg_replace("/[\[\] ]+/", '', $response);
+//    echo $response;
 
-/*
+
     $url = "https://www.rollbase.com/rest/api/getRelationships?" .
         "sessionId=" . $sessionKey .
-        "&objName=Phone&id=" . $id .
-        "&relName=R353377550";
+        "&objName=Phone&id=" . $response .
+        "&relName=R353377550&output=json";
+//    echo $url;
 
     $curl = curl_init();
 
@@ -123,7 +134,11 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
     $response = curl_exec($curl);
     $err = curl_error($curl);
 
-    curl_close($curl);*/
+    curl_close($curl);
+    echo $response;
+
+
+
 } else {
     header("location: /repair/");
 }
