@@ -47,10 +47,83 @@
 </div>
 
 <?php
+
+
+error_reporting(E_ALL | E_STRICT);
+ini_set("display_errors", 1);
+ini_set("html_errors", 1);
+
 if (isset($_GET['brand']) and isset($_GET['model'])) {
     $brand = $_GET['brand'];
     $model = $_GET['model'];
     echo $brand . " " . $model;
+
+    start:
+    if (!file_exists('sessionid')) {
+        include "login.php";
+        goto start;
+    }
+    $sessionKey = file_get_contents("sessionid");
+    $id = 0;
+
+    $url1 = "https://www.rollbase.com/rest/api/selectQuery?" .
+        "sessionId=" . $sessionKey .
+        "&query=select%20id%20from%20phone%20where%20name%3D'" . $brand . "%20" . $model .
+        "'&maxRows=1000000&output=json";
+
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => $url1,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "POST",
+        CURLOPT_HTTPHEADER => array(
+            "cache-control: no-cache"
+        ),
+    ));
+
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+    $httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+    curl_close($curl);
+
+    if ($httpcode == 403 or $httpcode != 200) {
+        include 'login.php';
+        goto start;
+    }
+    echo $brand.$model.$response;
+
+/*
+    $url = "https://www.rollbase.com/rest/api/getRelationships?" .
+        "sessionId=" . $sessionKey .
+        "&objName=Phone&id=" . $id .
+        "&relName=R353377550";
+
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => $url,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+        CURLOPT_HTTPHEADER => array(
+            "cache-control: no-cache",
+            "postman-token: 097e4f50-9b61-5e24-7ff9-690ea91731eb"
+        ),
+    ));
+
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+
+    curl_close($curl);*/
 } else {
     header("location: /repair/");
 }
