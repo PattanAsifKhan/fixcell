@@ -11,11 +11,11 @@
     <script src="jquery-3.1.1.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <link href="style.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
 </head>
 <body>
-<div class="navbar navbar-default`"
+<div class="navbar navbar-fixed-top"
      style="-webkit-border-radius: 0;-moz-border-radius: 0;border-radius: 0; margin-bottom: 0px;">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -30,11 +30,11 @@
             </a>
         </div>
         <div class="collapse navbar-collapse" id="navbar">
-            <ul class="nav nav-pills nav-justified navbar-right" style="margin-top: 10px;">
-                <li class="active"><a href="/">Home</a></li>
-                <li><a href="/repair/">Repair</a></li>
-                <li><a href="/services">Service</a></li>
-                <li><a href="/faq/">FAQ</a></li>
+            <ul class="nav nav-justified navbar-right nav-over-video" style="margin-top: 10px;">
+                <li class="active"><a href="/"><strong>Home</strong></a></li>
+                <li><a href="/repair/"><strong>Repair</strong></a></li>
+                <li><a href="/services"><strong>Service</strong></a></li>
+                <li><a href="/faq/"><strong>FAQ</strong></a></li>
             </ul>
         </div>
     </div>
@@ -115,13 +115,13 @@
     $(document).ready(function () {
         $("#footer").load("/footer.html");
     });
-    var backgrounds=[
-        "/images/repair.jpg",
-        "/images/repair1.jpg",
-        "/images/repair2.jpg",
-        "/images/repair3.jpg"
+    var backgrounds = [
+//        "/images/repair.jpg",
+//        "/images/repair1.jpg",
+//        "/images/repair2.png",
+//        "/images/repair3.jpg"
     ];
-    var i=0;
+    var i = 0;
     function slideshow() {
         $(".jumbotron").animate({
             opacity: 0.8
@@ -136,7 +136,14 @@
             });
         });
     }
-    setInterval(slideshow,3000);
+    //    setInterval(slideshow,3000);
+    $(function () {
+        $(document).scroll(function () {
+            var $nav = $(".navbar-fixed-top");
+            $nav.toggleClass('navbar-default', $(this).scrollTop() > $nav.height());
+            $(".nav").toggleClass("nav-over-video", $(this).scrollTop() < $nav.height());
+        });
+    });
 </script>
 </body>
 </html>
@@ -150,7 +157,35 @@
         -webkit-background-size: cover;
         background-size: cover;
         background-position: center center;
-        height: 510px;
+        height: 610px;
+        overflow: hidden;
         padding: 0;
     }
+
+    video {
+        /*position: absolute;*/
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        min-width: 100%;
+        min-height: 90vh;
+    }
+
+    .navbar-default {
+        background-color: #F8F8F8;
+        border-color: #E7E7E7;
+    }
+
+    .nav-over-video {
+        background-color: #FF3E01 !important;
+        border-radius: 10px;
+    }
+
+    .nav-over-video > li > a {
+        background-color: #FF3E01 !important;
+        color: #fff;
+        border-radius: 10px;
+    }
+
+
 </style>

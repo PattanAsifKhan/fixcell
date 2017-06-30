@@ -108,7 +108,7 @@
 
     $modelSelect2.on("select2:select", function (e) {
         model = $(e.currentTarget).val();
-        window.open("/repair/repair.php?brand=" + brand + "&model=" + model,"_self");
+        window.open("/repair/repair.php?brand=" + brand + "&model=" + model, "_self");
     });
 </script>
 
@@ -138,5 +138,11 @@
 
     .select2-container {
         width: 100% !important;
+    }
+
+    body {
+        background-image: url('/images/back.jpg');
+        background-size: cover;
+        background-position: center center;
     }
 </style>
