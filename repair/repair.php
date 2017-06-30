@@ -21,7 +21,7 @@
 </head>
 <body>
 
-<div class="navbar navbar-inverse"
+<div class="navbar navbar-default"
      style="-webkit-border-radius: 0;-moz-border-radius: 0;border-radius: 0; margin-bottom: 0px;">
     <div class="container-fluid">
         <div class="navbar-header">
