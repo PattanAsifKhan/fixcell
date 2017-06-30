@@ -41,9 +41,15 @@
 </div>
 
 <div class="jumbotron">
+    <div class="overlay text-center" style="display: table;">
+        <div style="display: table-cell; vertical-align: middle; color: #fff;">
+            <h1>Fixcell</h1>
+            <div class="btn btn-primary">Repair</div>
+        </div>
+    </div>
     <video id="bgVideo" autoplay loop poster="image.png">
         <!-- Video is embedded in the WEBM format -->
-        <source src="/images/home_video_new.mp4" type="video/webm">
+        <source src="/images/video.mp4" type="video/webm">
     </video>
 </div>
 
@@ -160,10 +166,21 @@
         height: 610px;
         overflow: hidden;
         padding: 0;
+        position: relative;
+    }
+
+    .overlay {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #00000077;
+        z-index: 10;
     }
 
     video {
-        /*position: absolute;*/
+        position: absolute;
         top: 0;
         left: 0;
         overflow: hidden;
@@ -177,14 +194,15 @@
     }
 
     .nav-over-video {
-        background-color: #FF3E01 !important;
+        /*background-color: #FF3E01 !important;*/
         border-radius: 10px;
     }
 
     .nav-over-video > li > a {
-        background-color: #FF3E01 !important;
+        /*background-color: #FF3E01 !important;*/
         color: #fff;
         border-radius: 10px;
+        margin-right: 10px;
     }
 
 
