@@ -135,6 +135,45 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
     $err = curl_error($curl);
 
     curl_close($curl);
+    $response = str_replace("[", "(", $response);
+    $response = str_replace("]", ")", $response);
+
+
+    $response = urlencode($response);
+    $url = "https://www.rollbase.com/rest/api/selectQuery?" .
+        "sessionId=" . $sessionKey .
+        "&query=" .
+        "select%20type_%2Cprice%20from%20service%20where%20id%20in%20" .
+        $response .
+        "&maxRows=1000000&output=json";
+
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => $url,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "POST",
+        CURLOPT_HTTPHEADER => array(
+            "cache-control: no-cache",
+            "postman-token: 9e7b25f9-7a1e-784e-d492-daaecbe1f83c"
+        ),
+    ));
+
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+    $httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+    curl_close($curl);
+
+    if ($httpcode == 403 or $httpcode != 200) {
+        include 'login.php';
+        goto start;
+    }
+
     echo "<script>";
     echo "var services=" . $response;
     echo "</script>";
@@ -159,7 +198,7 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
     $container = $("#services-div");
     $.each(services, function (i) {
         var col = $("<div/>")
-            .addClass("col-xs-3")
+            .addClass("col-xs-4")
             .appendTo($container);
         var panel = $("<div/>")
             .addClass("panel")
@@ -168,14 +207,14 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
         var panel_body = $("<div/>")
             .addClass("panel-body")
             .appendTo(panel);
-        var service_name =  $("<h4/>")
+        var service_name = $("<h4/>")
             .addClass("text-primary")
-            .html(services[i])
+            .html(services[i][0])
             .appendTo(panel_body);
-        var service_price =  $("<h5/>")
+        var service_price = $("<h5/>")
             .addClass("text-primary")
             .addClass("badge")
-            .html("₹ 5000/-")
+            .html("₹ " + services[i][1] + "/-")
             .appendTo(panel_body);
 
     });
