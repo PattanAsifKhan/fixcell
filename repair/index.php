@@ -80,9 +80,10 @@
 
     $modelSelect2.prop("disabled", true);
 
-
+    var brand = "";
+    var model = "";
     $brandSelect2.on("select2:select", function (e) {
-        var brand = $(e.currentTarget).val();
+        brand = $(e.currentTarget).val();
         $modelSelect2.prop("disabled", true);
         $modelSelect2.select2({
             placeholder: "Loading..."
@@ -103,7 +104,11 @@
                 });
             }
         });
+    });
 
+    $modelSelect2.on("select2:select", function (e) {
+        model = $(e.currentTarget).val();
+        window.open("/repair/repair.php?brand=" + brand + "&model=" + model,"_self");
     });
 </script>
 

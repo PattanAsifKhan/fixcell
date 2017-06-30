@@ -50,13 +50,12 @@
 if (isset($_GET['brand']) and isset($_GET['model'])) {
     $brand = $_GET['brand'];
     $model = $_GET['model'];
-
-    
+    echo $brand . " " . $model;
 } else {
-    header("Location: /repair");
+    header("location: /repair/");
 }
-
 ?>
+
 
 <!--footer-->
 <div id="footer"></div>
