@@ -18,31 +18,47 @@
 <div class="page-header" style="padding-bottom: 0; margin: 0 auto;">
     <div class="panel" style="margin: 0 auto; padding: 10px;">
         <div class="container">
-            <img src="/images/fixcell.png"/>
+            <img src="/images/second.png" height="49"/>
         </div>
     </div>
 </div>
 <div class="jumbotron">
-    <div class="navbar container">
+    <div class="navbar container" style="display: table;">
+        <ul class="nav nav-tabs table" style="margin-top: 10px;">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/repair/">Repair</a></li>
+            <li><a href="/services">Service</a></li>
+            <li><a href="/faq/">FAQ</a></li>
+        </ul>
+    </div>
 
+    <div id="banner">
 
     </div>
 
+
 </div>
+
 
 </body>
 </html>
 
 <style>
-    .navbar{
+    #banner {
+        float: right;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .navbar {
         background-color: rgba(0, 0, 0, 0.7) !important;
         border-bottom: 3px solid orangered;
         border-radius: 0;
     }
+
     .jumbotron {
         background-image: url(/images/mobile.jpg);
-        background-repeat:no-repeat;
-        -webkit-background-size:cover;
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
         background-size: cover;
         background-position: center center;
         height: 510px;
