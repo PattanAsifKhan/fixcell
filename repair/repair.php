@@ -73,7 +73,7 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
         "&maxRows=1000000" .
         "&output=json";
 
-    $url1 = str_replace(" ","%20",$url1);
+    $url1 = str_replace(" ", "%20", $url1);
 //    echo $url1;
 
     $curl = curl_init();
@@ -135,14 +135,18 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
     $err = curl_error($curl);
 
     curl_close($curl);
-    echo $response;
-
-
+    echo "<script>";
+    echo "var services=" . $response;
+    echo "</script>";
 
 } else {
     header("location: /repair/");
 }
 ?>
+<div class="container">
+    <div id="services-div" class="row">
+    </div>
+</div>
 
 
 <!--footer-->
@@ -151,6 +155,41 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
     $(document).ready(function () {
         $("#footer").load("/footer.html");
     });
+
+    $container = $("#services-div");
+    $.each(services, function (i) {
+        var col = $("<div/>")
+            .addClass("col-xs-3")
+            .appendTo($container);
+        var panel = $("<div/>")
+            .addClass("panel")
+            .addClass("panel-default")
+            .appendTo(col);
+        var panel_body = $("<div/>")
+            .addClass("panel-body")
+            .appendTo(panel);
+        var service_name =  $("<h4/>")
+            .addClass("text-primary")
+            .html(services[i])
+            .appendTo(panel_body);
+        var service_price =  $("<h5/>")
+            .addClass("text-primary")
+            .addClass("badge")
+            .html("₹ 5000/-")
+            .appendTo(panel_body);
+
+    });
+
+    $(".panel").on("click", function () {
+        $(this).toggleClass("panel-default").toggleClass("panel-primary");
+    });
 </script>
 </body>
 </html>
+
+<style>
+    .panel {
+        cursor: pointer;
+        margin: 10px;
+    }
+</style>
