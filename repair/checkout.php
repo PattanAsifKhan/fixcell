@@ -55,33 +55,33 @@
     <div id="checkout-div">
         <div class="row">
             <div class="col-md-8">
-                <form id="checkout-form" action="success.php">
+                <form id="checkout-form" method="post" action="success.php">
                     <div class="row">
                         <div class="form-group col-xs-6">
                             <label for="first-name">First Name: <span style="color: red;">*</span></label>
-                            <input class="form-control" id="first-name" required type="text" placeholder="First Name">
+                            <input class="form-control" name="first-name" required type="text" placeholder="First Name">
                         </div>
                         <div class="form-group col-xs-6">
                             <label for="last-name">Last Name: <span style="color: red;">*</span></label>
-                            <input class="form-control" id="last-name" required type="text" placeholder="Last Name">
+                            <input class="form-control" name="last-name" required type="text" placeholder="Last Name">
                         </div>
                         <div class="form-group col-xs-6">
                             <label for="first-name">Email: <span style="color: red;">*</span></label>
-                            <input class="form-control" id="first-name" required type="email" placeholder="Email">
+                            <input class="form-control" name="email" required type="email" placeholder="Email">
                         </div>
                         <div class="form-group col-xs-6">
                             <label for="last-name">Phone: <span style="color: red;">*</span></label>
-                            <input class="form-control" id="last-name" required type="text" pattern="/[0-9]{10}/"
+                            <input class="form-control" name="phone" required type="text" pattern="[0-9]{10}"
                                    placeholder="Phone">
                         </div>
                         <div class="form-group col-xs-12">
                             <label for="last-name">Nearest Landmark: </label>
-                            <input class="form-control" id="landmark" type="text"
+                            <input class="form-control" name="landmark" type="text"
                                    placeholder="Landmark">
                         </div>
                         <div class="form-group col-xs-12">
                             <label for="last-name">Address: <span style="color: red;">*</span></label>
-                            <textarea class="form-control" id="address" required type="text"
+                            <textarea class="form-control" name="address" required type="text"
                                       placeholder="Address"></textarea>
                         </div>
                         <div class="form-group col-xs-6">
