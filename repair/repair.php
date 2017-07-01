@@ -185,7 +185,6 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
 <div class="container">
     <div class="page-header" style="border: none;">
         <h1 style="display: inline;">
-            <img src="/images/apple.png" height="50">
             <?php
             echo $brand;
             setcookie("brand",$brand);
