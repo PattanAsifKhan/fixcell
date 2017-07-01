@@ -183,7 +183,7 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
 }
 ?>
 <div class="container">
-    <div class="page-header">
+    <div class="page-header" style="border: none;">
         <h1 style="display: inline;">
             <img src="/images/apple.png" height="50">
             <?php
@@ -195,6 +195,13 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
             echo $model;
             ?>
         </h2>
+        <div style="float: right;">
+            <div style="float: right; display: block;" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span>
+                Checkout
+            </div>
+            <div>Current&nbsp;Cart&nbsp;Value:&nbsp;₹&nbsp;<span id="cart-price"></span>
+            </div>
+        </div>
     </div>
     <div id="services-div" class="row">
     </div>
@@ -208,14 +215,27 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
         $("#footer").load("/footer.html");
     });
 
+    var selected_services = [];
+
+
+    function updatePrice() {
+        var price = 0;
+        for (var i = 0; i < selected_services.length; i++) {
+            price += services[i][1];
+        }
+        $("#cart-price").html(price.toFixed(2));
+    }
+    updatePrice();
+
     $container = $("#services-div");
     $.each(services, function (i) {
         var col = $("<div/>")
-            .addClass("col-md-4")
+            .addClass("col-md-4 col-sm-6")
             .appendTo($container);
         var panel = $("<div/>")
             .addClass("panel")
             .addClass("panel-default")
+            .attr('id', 'service-' + i)
             .appendTo(col);
         var panel_body = $("<div/>")
             .addClass("panel-body")
@@ -234,6 +254,16 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
 
     $(".panel").on("click", function () {
         $(this).toggleClass("panel-default").toggleClass("panel-primary");
+        $val = $(this).attr('id');
+        console.log($val);
+        $val = $val.split("-")[1];
+        if ($.inArray($val, selected_services) >= 0) {
+            var i = selected_services.indexOf($val);
+            selected_services.splice(i, 1);
+        } else {
+            selected_services.push($val);
+        }
+        updatePrice();
     });
 </script>
 </body>
