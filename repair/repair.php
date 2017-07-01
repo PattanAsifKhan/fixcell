@@ -175,7 +175,7 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
     }
 
     echo "<script>";
-    echo "var services=" . $response;
+    echo "var services=" . $response . ";";
     echo "</script>";
 
 } else {
@@ -183,6 +183,19 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
 }
 ?>
 <div class="container">
+    <div class="page-header">
+        <h1 style="display: inline;">
+            <img src="/images/apple.png" height="50">
+            <?php
+            echo $brand;
+            ?>
+        </h1>
+        <h2 style="display: inline;">
+            <?php
+            echo $model;
+            ?>
+        </h2>
+    </div>
     <div id="services-div" class="row">
     </div>
 </div>
@@ -198,7 +211,7 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
     $container = $("#services-div");
     $.each(services, function (i) {
         var col = $("<div/>")
-            .addClass("col-xs-4")
+            .addClass("col-md-4")
             .appendTo($container);
         var panel = $("<div/>")
             .addClass("panel")
