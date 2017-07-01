@@ -148,8 +148,13 @@
             var $nav = $(".navbar-fixed-top");
             $nav.toggleClass('navbar-default', $(this).scrollTop() > $nav.height());
             $(".nav").toggleClass("nav-over-video", $(this).scrollTop() < $nav.height());
+            if ($(this).scrollTop() > $nav.height()){
+                $(".icon-bar").css({'background-color': '#888 !important'});
+                console.log($(".icon-bar"));
+            }
         });
     });
+
 </script>
 </body>
 </html>
@@ -203,6 +208,16 @@
         color: #fff;
         border-radius: 10px;
         margin-right: 10px;
+    }
+
+    @media only screen and (max-width: 768px) {
+        video {
+            display: none !important;
+        }
+    }
+
+    .icon-bar{
+        background-color: white;
     }
 
 
