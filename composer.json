@@ -1,0 +1,12 @@
+{
+  "name": "fixcell/fixcell",
+  "description": "Mobile repair site",
+  "minimum-stability": "dev",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Sanjit Singh Chouhan",
+      "email": "sanjeet291196@gmail.com"
+    }
+  ]
+}
