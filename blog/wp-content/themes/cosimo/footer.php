@@ -26,17 +26,11 @@
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info smallPart">
 			<div class="infoFoo">
-				<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'cosimo' ) ); ?>">
+				<a href="<?php echo esc_url( __( 'http://fixcell.in/', 'cosimo' ) ); ?>">
 				<?php
-				/* translators: %s: WordPress name */
-				printf( esc_html__( 'Proudly powered by %s', 'cosimo' ), 'WordPress' );
+				printf( esc_html__( 'Maintained by %s', 'cosimo' ), 'fixcell' );
 				?>
 				</a>
-				<span class="sep"> | </span>
-				<?php
-				/* translators: 1: theme name, 2: theme developer */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'cosimo' ), '<a target="_blank" href="https://crestaproject.com/downloads/cosimo/" rel="nofollow" title="Cosimo Theme">Cosimo</a>', 'CrestaProject WordPress Theme' );
-				?>
 			</div>
 			<div class="infoFoo right">
 				<div class="socialLine">
