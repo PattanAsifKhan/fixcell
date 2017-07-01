@@ -49,9 +49,9 @@
 <?php
 
 
-//error_reporting(E_ALL | E_STRICT);
-//ini_set("display_errors", 1);
-//ini_set("html_errors", 1);
+error_reporting(E_ALL | E_STRICT);
+ini_set("display_errors", 1);
+ini_set("html_errors", 1);
 
 if (isset($_GET['brand']) and isset($_GET['model'])) {
     $brand = $_GET['brand'];
@@ -169,7 +169,7 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
 
     curl_close($curl);
 
-    if ($httpcode == 403 or $httpcode != 200) {
+    if ($httpcode == 403) {
         include 'login.php';
         goto start;
     }
@@ -188,17 +188,22 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
             <img src="/images/apple.png" height="50">
             <?php
             echo $brand;
+            setcookie("brand",$brand);
             ?>
         </h1>
         <h2 style="display: inline;">
             <?php
             echo $model;
+            setcookie("model",$model);
             ?>
         </h2>
         <div style="float: right;">
-            <div style="float: right; display: block;" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span>
-                Checkout
-            </div>
+            <a href="checkout.php" onclick="checkout()">
+                <div style="float: right; display: block;" class="btn btn-primary"><span
+                            class="glyphicon glyphicon-shopping-cart"></span>
+                    Checkout
+                </div>
+            </a>
             <div>Current&nbsp;Cart&nbsp;Value:&nbsp;₹&nbsp;<span id="cart-price"></span>
             </div>
         </div>
@@ -206,7 +211,6 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
     <div id="services-div" class="row">
     </div>
 </div>
-
 
 <!--footer-->
 <div id="footer"></div>
@@ -265,6 +269,15 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
         }
         updatePrice();
     });
+
+    function checkout() {
+        var cart = [];
+        for (var i = 0; i < selected_services.length; i++) {
+            cart.push(services[i]);
+        }
+        document.cookie = "cart=" + cart;
+        window.open($url);
+    }
 </script>
 </body>
 </html>
