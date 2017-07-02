@@ -45,7 +45,6 @@
         </div>
     </div>
 </div>
-
 <?php
 
 
@@ -56,6 +55,9 @@ ini_set("html_errors", 1);
 if (isset($_GET['brand']) and isset($_GET['model'])) {
     $brand = $_GET['brand'];
     $model = $_GET['model'];
+
+    setcookie("cart", '', time() - 1000);
+    setcookie("cart", '', time() - 1000, '/');
 
     start:
     if (!file_exists('sessionid')) {
@@ -187,13 +189,13 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
         <h1 style="display: inline;">
             <?php
             echo $brand;
-            setcookie("brand",$brand);
+            setcookie("brand", $brand);
             ?>
         </h1>
         <h2 style="display: inline;">
             <?php
             echo $model;
-            setcookie("model",$model);
+            setcookie("model", $model);
             ?>
         </h2>
         <div style="float: right;">
@@ -272,10 +274,9 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
     function checkout() {
         var cart = [];
         for (var i = 0; i < selected_services.length; i++) {
-            cart.push(services[i]);
+            cart.push(services[selected_services[i]]);
         }
         document.cookie = "cart=" + cart;
-        window.open($url);
     }
 </script>
 </body>

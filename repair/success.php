@@ -4,6 +4,11 @@
 error_reporting(E_ALL | E_STRICT);
 ini_set("display_errors", 1);
 ini_set("html_errors", 1);
+
+if (!isset($_COOKIE['brand']) or !isset($_COOKIE['model'])) {
+    header("location: /repair/");
+}
+
 start:
 if (!file_exists('sessionid')) {
     include "login.php";

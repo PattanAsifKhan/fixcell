@@ -1,3 +1,8 @@
+<?php
+if (!isset($_COOKIE['brand']) or !isset($_COOKIE['model'])) {
+    header("location: /repair/");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,7 +88,7 @@
     hidePleaseWait = function () {
         pleaseWait.modal('hide');
     };
-//    showPleaseWait();
+    //    showPleaseWait();
 
 </script>
 
@@ -215,11 +220,11 @@
 <style>
     .modal-dialog {
         height: 80% !important;
-        padding-top:10%;
+        padding-top: 10%;
     }
 
     .modal-content {
-        overflow:visible;
+        overflow: visible;
     }
 
     .modal-body {
