@@ -2,9 +2,106 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>fixcell</title>
+    <title>Fixcell</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/bootstrap.min.css"
+          rel="stylesheet"><!-- Optional theme -->
+    <link href="/css/bootstrap-theme.min.css"
+          rel="stylesheet"><!-- Latest compiled and minified JavaScript -->
+    <script src="/jquery-3.1.1.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <link href="/style.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
 </head>
 <body>
-Successfull
+<div class="navbar navbar-default"
+     style="-webkit-border-radius: 0;-moz-border-radius: 0;border-radius: 0; margin-bottom: 0px;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar"
+                    style="vertical-align: middle; margin-top: 15px">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/" style="height: auto;">
+                <img src="/images/fixcell.png" alt="fixcell" style="display: inherit;"/>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="nav nav-pills nav-justified navbar-right" style="margin-top: 10px;">
+                <li class="active"><a href="/repair/">Repair</a></li>
+                <li><a href="/services">Service</a></li>
+                <li>
+                    <div class="dropdown">
+                        <div class="dropbtn text-primary">Support</div>
+                        <div class="dropdown-content">
+                            <a href="/faq">FAQ</a>
+                            <a href="/contact/contact.html">Contact us</a>
+                            <a href="#">Feedback</a>
+                            <a href="#">Career</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="tick-image">
+    <img class="center-block" src="/images/success.svg">
+    <h2 class="text-center"><strong>Your Order is Successful</strong></h2>
+    <h3 class="text-center"><strong>Thank you</strong></h3>
+</div>
+
 </body>
 </html>
+<style>
+    .dropbtn {
+        padding: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {
+        background-color: #f1f1f1
+    }
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    .dropdown:hover .dropbtn {
+        /*background-color: #3e8e41;*/
+    }
+    .tick-image{
+        margin-top: 8%;
+    }
+
+</style>
