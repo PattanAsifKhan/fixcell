@@ -49,7 +49,7 @@ if (!isset($_COOKIE['brand']) or !isset($_COOKIE['model'])) {
                 <li><a href="/services">Service</a></li>
                 <li class="dropdown">
                     <a>
-                        <div class="dropbtn"><strong>Support</strong></div>
+                        <div class="dropbtn">Support</div>
                     </a>
                     <div class="dropdown-content">
                         <a href="/faq">FAQ</a>
@@ -61,7 +61,7 @@ if (!isset($_COOKIE['brand']) or !isset($_COOKIE['model'])) {
             </ul>
         </div>
     </div>
-</div>  
+</div>
 
 <div class="container">
     <div class="page-header">
