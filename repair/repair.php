@@ -224,7 +224,7 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
     function updatePrice() {
         var price = 0;
         for (var i = 0; i < selected_services.length; i++) {
-            price += services[i][1];
+            price += services[selected_services[i]][1];
         }
         $("#cart-price").html(price.toFixed(2));
     }

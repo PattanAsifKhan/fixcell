@@ -51,11 +51,47 @@
         <h1 class="text-primary">Checkout</h1>
     </div>
 </div>
+
+
+<!-- Waiting Modal -->
+<div class="modal fade" id="pleaseWaitDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="text-center text-primary">Submitting</h1>
+            </div>
+            <div class="modal-body">
+                <div class="text-info text-center">Please wait..</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var pleaseWait = $('#pleaseWaitDialog');
+
+    showPleaseWait = function () {
+        pleaseWait.modal('show');
+        $('#pleaseWaitDialog').modal({
+            backdrop: 'static',
+            keyboard: false
+        })
+    };
+
+    hidePleaseWait = function () {
+        pleaseWait.modal('hide');
+    };
+//    showPleaseWait();
+
+</script>
+
 <div class="container">
     <div id="checkout-div">
         <div class="row">
             <div class="col-md-8">
-                <form id="checkout-form" method="post" action="success.php">
+                <form id="checkout-form" onsubmit="showPleaseWait()" method="post" action="success.php">
                     <div class="row">
                         <div class="form-group col-xs-6">
                             <label for="first-name">First Name: <span style="color: red;">*</span></label>
@@ -100,9 +136,11 @@
     </div>
 </div>
 
+
 <!--footer-->
 <div id="footer"></div>
 <script>
+
     $("#checkout-form")[0].reset();
     function getCookie(cname) {
         var name = cname + "=";
@@ -173,3 +211,18 @@
 </script>
 </body>
 </html>
+
+<style>
+    .modal-dialog {
+        height: 80% !important;
+        padding-top:10%;
+    }
+
+    .modal-content {
+        overflow:visible;
+    }
+
+    .modal-body {
+        overflow: auto;
+    }
+</style>
