@@ -26,15 +26,16 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="/" style="height: auto;">
-                <img src="/images/fixcell.png" alt="fixcell" style="display: inherit;"/>
+                <img src="/images/fixcell.png" alt="fixcell" style="display: inline;"/>ixcell
             </a>
         </div>
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav nav-justified navbar-right nav-over-video" style="margin-top: 10px;">
+                <li></li>
                 <li><a href="/repair/"><strong>Repair</strong></a></li>
                 <li><a href="/services"><strong>Service</strong></a></li>
-                <li>
-                    <div class="dropdown">
+                <li class="dropdown">
+                    <a>
                         <div class="dropbtn"><strong>Support</strong></div>
                         <div class="dropdown-content">
                             <a href="/faq">FAQ</a>
@@ -42,8 +43,7 @@
                             <a href="#">Feedback</a>
                             <a href="#">Career</a>
                         </div>
-                    </div>
-
+                    </a>
                 </li>
             </ul>
         </div>
@@ -54,7 +54,9 @@
     <div class="overlay text-center" style="display: table;">
         <div style="display: table-cell; vertical-align: middle; color: #fff;">
             <h1>Fixcell</h1>
-            <div class="btn btn-primary">Repair</div>
+            <a href="/repair">
+                <div class="btn btn-primary" style="font-size: 1.5em;">Repair</div>
+            </a>
         </div>
     </div>
     <video id="bgVideo" autoplay loop poster="/images/repair1.jpg">
@@ -131,28 +133,6 @@
     $(document).ready(function () {
         $("#footer").load("/footer.html");
     });
-    var backgrounds = [
-//        "/images/repair.jpg",
-//        "/images/repair1.jpg",
-//        "/images/repair2.png",
-//        "/images/repair3.jpg"
-    ];
-    var i = 0;
-    function slideshow() {
-        $(".jumbotron").animate({
-            opacity: 0.8
-        }, 500, function () {
-            i = i + 1;
-            i = i % backgrounds.length;
-            $(this).css("background-image", "url(" + backgrounds[i] + ")").promise().done(function () {
-                // Callback of the callback :)
-                $(this).animate({
-                    opacity: 1
-                }, 600)
-            });
-        });
-    }
-    //    setInterval(slideshow,3000);
     $(function () {
         $(document).scroll(function () {
             var $nav = $(".navbar-fixed-top");
@@ -229,13 +209,12 @@
     }
 
     .dropbtn {
-        color: white;
-        padding: 16px;
         border: none;
         cursor: pointer;
     }
 
     .dropdown {
+        cursor: pointer;
         position: relative;
         display: inline-block;
     }
@@ -247,7 +226,7 @@
         position: absolute;
         background-color: #f9f9f9;
         min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         z-index: 1;
     }
 
@@ -260,7 +239,9 @@
     }
 
     /* Change color of dropdown links on hover */
-    .dropdown-content a:hover {background-color: #f1f1f1}
+    .dropdown-content a:hover {
+        background-color: #f1f1f1
+    }
 
     /* Show the dropdown menu on hover */
     .dropdown:hover .dropdown-content {
