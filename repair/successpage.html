@@ -49,11 +49,17 @@
 </div>
 <div class="tick-image">
     <img class="center-block" src="/images/success.svg">
-    <h2 class="text-center"><strong>Your Order is Successful</strong></h2>
-    <h3 class="text-center"><strong>Thank you</strong></h3>
+    <h2 class="text-center"><strong>Order has been created successfully</strong></h2>
+    <h1 class="text-center"> <a href="/index.html">Check status</a></h1>
 </div>
 
 </body>
+<div id="footer"></div>
+<script>
+    $(document).ready(function () {
+        $("#footer").load("/footer.html");
+    });
+</script>
 </html>
 <style>
     .dropbtn {
@@ -101,7 +107,8 @@
         /*background-color: #3e8e41;*/
     }
     .tick-image{
-        margin-top: 8%;
+        margin-top: 9%;
     }
+
 
 </style>
