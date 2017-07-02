@@ -45,7 +45,7 @@ $err = curl_error($curl);
 $httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
 curl_close($curl);
-echo $httpcode;
+//echo $httpcode;
 if ($httpcode == 403) {
     include 'login.php';
     goto start;
@@ -55,8 +55,8 @@ $id = json_decode($response, true)['id'];
 
 
 $cart = explode(",", $_COOKIE['cart']);
-print_r($cart);
-echo sizeof($cart);
+//print_r($cart);
+//echo sizeof($cart);
 
 for ($i = 0; $i < sizeof($cart); $i = $i + 2) {
     $curl = curl_init();
@@ -74,7 +74,7 @@ for ($i = 0; $i < sizeof($cart); $i = $i + 2) {
         "&Cost=" . urlencode($cart[$i + 1]) .
         "&R354713501=" . $id .
         "&output=json";
-    echo "<br><br>".$cart[$i] . "<br>" . $url . "<br>";
+//    echo "<br><br>".$cart[$i] . "<br>" . $url . "<br>";
 
     curl_setopt_array($curl, array(
         CURLOPT_URL => $url,
@@ -94,14 +94,25 @@ for ($i = 0; $i < sizeof($cart); $i = $i + 2) {
     $err = curl_error($curl);
     $httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
-    echo $response . "<br>" . $httpcode . "<br>";
+//    echo $response . "<br>" . $httpcode . "<br>";
 
     curl_close($curl);
 
     if ($httpcode == 403) {
-        die();
         include "login.php";
         $i -= 2;
         continue;
+    }
+}
+
+include "successpage.html";
+
+if (isset($_SERVER['HTTP_COOKIE'])) {
+    $cookies = explode(';', $_SERVER['HTTP_COOKIE']);
+    foreach($cookies as $cookie) {
+        $parts = explode('=', $cookie);
+        $name = trim($parts[0]);
+        setcookie($name, '', time()-1000);
+        setcookie($name, '', time()-1000, '/');
     }
 }
