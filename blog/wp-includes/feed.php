@@ -539,7 +539,7 @@ function prep_atom_text_construct($data) {
 	}
 
 	if ( ! function_exists( 'xml_parser_create' ) ) {
-		trigger_error( __( "PHP's XML extension is not available. Please contact your hosting provider to enable PHP's XML extension." ) );
+		trigger_error( __( "PHP's XML extension is not available. Please contacts your hosting provider to enable PHP's XML extension." ) );
 
 		return array( 'html', "<![CDATA[$data]]>" );
 	}

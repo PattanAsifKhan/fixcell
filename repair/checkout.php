@@ -52,8 +52,8 @@ if (!isset($_COOKIE['brand']) or !isset($_COOKIE['model'])) {
                         <div class="dropbtn">Support</div>
                     </a>
                     <div class="dropdown-content">
-                        <a href="/faq">FAQ</a>
-                        <a href="/contact/contact.html">Contact us</a>
+                        <a href="/support/faq/">FAQ</a>
+                        <a href="/support/contacts/">Contact us</a>
                         <a href="#">Feedback</a>
                         <a href="#">Career</a>
                     </div>

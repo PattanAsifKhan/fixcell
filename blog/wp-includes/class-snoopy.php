@@ -27,7 +27,7 @@ Version: 1.2.4
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-You may contact the author of Snoopy by e-mail at:
+You may contacts the author of Snoopy by e-mail at:
 monte@ohrt.com
 
 The latest version of Snoopy can be obtained from:

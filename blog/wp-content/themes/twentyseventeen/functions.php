@@ -134,7 +134,7 @@ function twentyseventeen_setup() {
 			'about' => array(
 				'thumbnail' => '{{image-sandwich}}',
 			),
-			'contact' => array(
+			'contacts' => array(
 				'thumbnail' => '{{image-espresso}}',
 			),
 			'blog' => array(
@@ -173,7 +173,7 @@ function twentyseventeen_setup() {
 			'panel_1' => '{{homepage-section}}',
 			'panel_2' => '{{about}}',
 			'panel_3' => '{{blog}}',
-			'panel_4' => '{{contact}}',
+			'panel_4' => '{{contacts}}',
 		),
 
 		// Set up nav menus for each of the two areas registered in the theme.

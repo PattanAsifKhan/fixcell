@@ -169,7 +169,7 @@ switch($step) {
 		__( 'https://codex.wordpress.org/Editing_wp-config.php' )
 	);
 ?></p>
-<p><?php _e( 'In all likelihood, these items were supplied to you by your Web Host. If you don&#8217;t have this information, then you will need to contact them before you can continue. If you&#8217;re all ready&hellip;' ); ?></p>
+<p><?php _e( 'In all likelihood, these items were supplied to you by your Web Host. If you don&#8217;t have this information, then you will need to contacts them before you can continue. If you&#8217;re all ready&hellip;' ); ?></p>
 
 <p class="step"><a href="<?php echo $step_1; ?>" class="button button-large"><?php _e( 'Let&#8217;s go!' ); ?></a></p>
 <?php
@@ -183,7 +183,7 @@ switch($step) {
 	?>
 <h1 class="screen-reader-text"><?php _e( 'Set up your database connection' ) ?></h1>
 <form method="post" action="setup-config.php?step=2">
-	<p><?php _e( 'Below you should enter your database connection details. If you&#8217;re not sure about these, contact your host.' ); ?></p>
+	<p><?php _e( 'Below you should enter your database connection details. If you&#8217;re not sure about these, contacts your host.' ); ?></p>
 	<table class="form-table">
 		<tr>
 			<th scope="row"><label for="dbname"><?php _e( 'Database Name' ); ?></label></th>

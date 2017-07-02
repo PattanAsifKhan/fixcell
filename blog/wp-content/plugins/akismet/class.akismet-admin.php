@@ -817,7 +817,7 @@ class Akismet_Admin {
 		Akismet::fix_scheduled_recheck();
 
 		if ( wp_next_scheduled('akismet_schedule_cron_recheck') > time() && self::get_number_spam_waiting() > 0 ) {
-			$link_text = apply_filters( 'akismet_spam_check_warning_link_text', sprintf( __( 'Please check your <a href="%s">Akismet configuration</a> and contact your web host if problems persist.', 'akismet'), esc_url( self::get_page_url() ) ) );
+			$link_text = apply_filters( 'akismet_spam_check_warning_link_text', sprintf( __( 'Please check your <a href="%s">Akismet configuration</a> and contacts your web host if problems persist.', 'akismet'), esc_url( self::get_page_url() ) ) );
 			Akismet::view( 'notice', array( 'type' => 'spam-check', 'link_text' => $link_text ) );
 		}
 	}

@@ -1214,7 +1214,7 @@ echo "<$heading_tag id='request-filesystem-credentials-title'>" . __( 'Connectio
 		}
 		echo ' ';
 	}
-	_e('If you do not remember your credentials, you should contact your web host.');
+	_e('If you do not remember your credentials, you should contacts your web host.');
 ?></p>
 <label for="hostname">
 	<span class="field-title"><?php _e( 'Hostname' ) ?></span>

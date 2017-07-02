@@ -533,7 +533,7 @@ function wp_not_installed() {
 		if ( ! is_blog_installed() && ! wp_installing() ) {
 			nocache_headers();
 
-			wp_die( __( 'The site you have requested is not installed properly. Please contact the system administrator.' ) );
+			wp_die( __( 'The site you have requested is not installed properly. Please contacts the system administrator.' ) );
 		}
 	} elseif ( ! is_blog_installed() && ! wp_installing() ) {
 		nocache_headers();
