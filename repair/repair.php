@@ -32,15 +32,26 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="/" style="height: auto;">
-                <img src="/images/fixcell.png" alt="fixcell" style="display: inherit;"/>
+                <img src="/images/fixcell.png" alt="fixcell"
+                     style="display: inline;"/><span><strong>ixcell</strong></span>
             </a>
         </div>
         <div class="collapse navbar-collapse" id="navbar">
-            <ul class="nav nav-pills nav-justified navbar-right" style="margin-top: 10px;">
+            <ul class="nav nav-pills nav-justified navbar-right nav-over-video" style="margin-top: 10px;">
                 <li><a href="/">Home</a></li>
                 <li class="active"><a href="/repair/">Repair</a></li>
                 <li><a href="/services">Service</a></li>
-                <li><a href="/faq/">FAQ</a></li>
+                <li class="dropdown">
+                    <a>
+                        <div class="dropbtn"><strong>Support</strong></div>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="/faq">FAQ</a>
+                        <a href="/contact/contact.html">Contact us</a>
+                        <a href="#">Feedback</a>
+                        <a href="#">Career</a>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
