@@ -11,7 +11,7 @@
     <script src="/jquery-3.1.1.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <link href="/style.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
 </head>
 <body>
 <div class="navbar navbar-default"
@@ -48,22 +48,50 @@
     </div>
 </div>
 
-<div class="container">
-    <h1>Frequently Asked Questions</h1>
-    <div class="panel-group" id="accordion">
+<div class="text-center">
+    <h1><strong>Contact Us</strong></h1>
+    <h4 class="text-success">Have a question? Need help? Get in touch with us.</h4>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Customer Support</h2>
+                <span class="glyphicon glyphicon-phone">9849321670</span>
+                <span class="glyphicon glyphicon-envelope"><a href="mailto:biswajeet15696@gmail.com"></a>biswajeet15696@gmail.com </span>
+            </div>
+            <div class="col-md-6">
+
+                <form action="/action_page.php">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="fname">First Name</label><br>
+                            <input type="text" id="fname" name="firstname" placeholder="First name">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="lname">Last Name</label><br>
+                            <input type="text" id="lname" name="lastname" placeholder="Last name..">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="email">Email Address</label><br>
+                            <input type="email" id="email" name="email" placeholder="Email">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="phone">Phone no.</label><br>
+                            <input type="tel" id="phone" name="phone" placeholder="Phone">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="subject">Message</label><br>
+                            <textarea id="subject" name="subject" placeholder="Enter your feedback"
+                                      style="width: 100%; height:200px"></textarea>
+                        </div>
+                        <input type="submit" class=" btn btn-primary" value="Send your message.">
+                    </div>
+
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 
-<script src="faq.js"></script>
-
-
-<!--footer-->
-<div id="footer"></div>
-<script>
-    $(document).ready(function () {
-        $("#footer").load("/footer.html");
-    });
-</script>
 </body>
 </html>
 <style>

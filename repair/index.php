@@ -38,9 +38,9 @@
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav nav-pills nav-justified navbar-right" style="margin-top: 10px;">
                 <li><a href="/">Home</a></li>
-                <li class="active"><a href="/repair/">Repair</a></li>
+                <li class="active"><a href="/repair">Repair</a></li>
                 <li><a href="/services">Service</a></li>
-                <li><a href="/faq/">FAQ</a></li>
+                <li class="active"><a href="/faq/">FAQ</a></li>
             </ul>
         </div>
     </div>
@@ -145,4 +145,6 @@
         background-size: cover;
         background-position: center center;
     }
+
+
 </style>
