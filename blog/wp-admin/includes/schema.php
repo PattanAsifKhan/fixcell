@@ -1086,7 +1086,7 @@ We hope you enjoy your new site. Thanks!
 
 			$msg .= '<p>' . sprintf(
 				/* translators: %s: host name */
-				__( 'The installer attempted to contact a random hostname (%s) on your domain.' ),
+				__( 'The installer attempted to contacts a random hostname (%s) on your domain.' ),
 				'<code>' . $hostname . '</code>'
 			);
 			if ( ! empty ( $errstr ) ) {

@@ -100,7 +100,7 @@ function ms_site_check() {
 			$admin_email = str_replace( '@', ' AT ', get_site_option( 'admin_email', 'support@' . get_network()->domain ) );
 			wp_die(
 				/* translators: %s: admin email link */
-				sprintf( __( 'This site has not been activated yet. If you are having problems activating your site, please contact %s.' ),
+				sprintf( __( 'This site has not been activated yet. If you are having problems activating your site, please contacts %s.' ),
 					sprintf( '<a href="mailto:%s">%s</a>', $admin_email )
 				)
 			);
@@ -462,7 +462,7 @@ function ms_not_installed( $domain, $path ) {
 	$title = __( 'Error establishing a database connection' );
 
 	$msg  = '<h1>' . $title . '</h1>';
-	$msg .= '<p>' . __( 'If your site does not display, please contact the owner of this network.' ) . '';
+	$msg .= '<p>' . __( 'If your site does not display, please contacts the owner of this network.' ) . '';
 	$msg .= ' ' . __( 'If you are the owner of this network please check that MySQL is running properly and all tables are error free.' ) . '</p>';
 	$query = $wpdb->prepare( "SHOW TABLES LIKE %s", $wpdb->esc_like( $wpdb->site ) );
 	if ( ! $wpdb->get_var( $query ) ) {

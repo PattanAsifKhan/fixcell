@@ -285,7 +285,7 @@ function wp_default_scripts( &$scripts ) {
 		'image_memory_exceeded' => __('Memory exceeded. Please try another smaller file.'),
 		'image_dimensions_exceeded' => __('This is larger than the maximum size. Please try another.'),
 		'default_error' => __('An error occurred in the upload. Please try again later.'),
-		'missing_upload_url' => __('There was a configuration error. Please contact the server administrator.'),
+		'missing_upload_url' => __('There was a configuration error. Please contacts the server administrator.'),
 		'upload_limit_exceeded' => __('You may only upload 1 file.'),
 		'http_error' => __('HTTP error.'),
 		'upload_failed' => __('Upload failed.'),

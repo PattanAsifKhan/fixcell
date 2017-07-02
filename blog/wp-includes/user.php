@@ -1366,7 +1366,7 @@ function validate_username( $username ) {
  * can be hooked into.
  *
  * @since 2.0.0
- * @since 3.6.0 The `aim`, `jabber`, and `yim` fields were removed as default user contact
+ * @since 3.6.0 The `aim`, `jabber`, and `yim` fields were removed as default user contacts
  *              methods for new installs. See wp_get_user_contact_methods().
  * @since 4.7.0 The user's locale can be passed to `$userdata`.
  *
@@ -1653,7 +1653,7 @@ function wp_insert_user( $userdata ) {
 	/**
  	 * Filters a user's meta values and keys before the user is created or updated.
  	 *
- 	 * Does not include contact methods. These are added using `wp_get_user_contact_methods( $user )`.
+ 	 * Does not include contacts methods. These are added using `wp_get_user_contact_methods( $user )`.
  	 *
  	 * @since 4.4.0
  	 *
@@ -1822,7 +1822,7 @@ function wp_update_user($userdata) {
 
 This notice confirms that your password was changed on ###SITENAME###.
 
-If you did not change your password, please contact the Site Administrator at
+If you did not change your password, please contacts the Site Administrator at
 ###ADMIN_EMAIL###
 
 This email has been sent to ###EMAIL###
@@ -1878,7 +1878,7 @@ All at ###SITENAME###
 
 This notice confirms that your email was changed on ###SITENAME###.
 
-If you did not change your email, please contact the Site Administrator at
+If you did not change your email, please contacts the Site Administrator at
 ###ADMIN_EMAIL###
 
 This email has been sent to ###EMAIL###
@@ -1994,14 +1994,14 @@ function _get_additional_user_keys( $user ) {
 }
 
 /**
- * Set up the user contact methods.
+ * Set up the user contacts methods.
  *
- * Default contact methods were removed in 3.6. A filter dictates contact methods.
+ * Default contacts methods were removed in 3.6. A filter dictates contacts methods.
  *
  * @since 3.7.0
  *
  * @param WP_User $user Optional. WP_User object.
- * @return array Array of contact methods and their labels.
+ * @return array Array of contacts methods and their labels.
  */
 function wp_get_user_contact_methods( $user = null ) {
 	$methods = array();
@@ -2014,18 +2014,18 @@ function wp_get_user_contact_methods( $user = null ) {
 	}
 
 	/**
-	 * Filters the user contact methods.
+	 * Filters the user contacts methods.
 	 *
 	 * @since 2.9.0
 	 *
-	 * @param array   $methods Array of contact methods and their labels.
+	 * @param array   $methods Array of contacts methods and their labels.
  	 * @param WP_User $user    WP_User object.
 	 */
 	return apply_filters( 'user_contactmethods', $methods, $user );
 }
 
 /**
- * The old private function for setting up user contact methods.
+ * The old private function for setting up user contacts methods.
  *
  * Use wp_get_user_contact_methods() instead.
  *
@@ -2033,7 +2033,7 @@ function wp_get_user_contact_methods( $user = null ) {
  * @access private
  *
  * @param WP_User $user Optional. WP_User object. Default null.
- * @return array Array of contact methods and their labels.
+ * @return array Array of contacts methods and their labels.
  */
 function _wp_get_user_contactmethods( $user = null ) {
 	return wp_get_user_contact_methods( $user );
@@ -2350,7 +2350,7 @@ function register_new_user( $user_login, $user_email ) {
 	$user_pass = wp_generate_password( 12, false );
 	$user_id = wp_create_user( $sanitized_user_login, $user_pass, $user_email );
 	if ( ! $user_id || is_wp_error( $user_id ) ) {
-		$errors->add( 'registerfail', sprintf( __( '<strong>ERROR</strong>: Couldn&#8217;t register you&hellip; please contact the <a href="mailto:%s">webmaster</a> !' ), get_option( 'admin_email' ) ) );
+		$errors->add( 'registerfail', sprintf( __( '<strong>ERROR</strong>: Couldn&#8217;t register you&hellip; please contacts the <a href="mailto:%s">webmaster</a> !' ), get_option( 'admin_email' ) ) );
 		return $errors;
 	}
 

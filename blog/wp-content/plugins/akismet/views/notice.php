@@ -42,12 +42,12 @@
 <?php elseif ( $type == 'missing-functions' ) :?>
 <div class="akismet-alert akismet-critical">
 	<h3 class="akismet-key-status failed"><?php esc_html_e('Network functions are disabled.', 'akismet'); ?></h3>
-	<p class="akismet-description"><?php printf( __('Your web host or server administrator has disabled PHP&#8217;s <code>gethostbynamel</code> function.  <strong>Akismet cannot work correctly until this is fixed.</strong>  Please contact your web host or firewall administrator and give them <a href="%s" target="_blank">this information about Akismet&#8217;s system requirements</a>.', 'akismet'), 'https://blog.akismet.com/akismet-hosting-faq/'); ?></p>
+	<p class="akismet-description"><?php printf( __('Your web host or server administrator has disabled PHP&#8217;s <code>gethostbynamel</code> function.  <strong>Akismet cannot work correctly until this is fixed.</strong>  Please contacts your web host or firewall administrator and give them <a href="%s" target="_blank">this information about Akismet&#8217;s system requirements</a>.', 'akismet'), 'https://blog.akismet.com/akismet-hosting-faq/'); ?></p>
 </div>
 <?php elseif ( $type == 'servers-be-down' ) :?>
 <div class="akismet-alert akismet-critical">
 	<h3 class="akismet-key-status failed"><?php esc_html_e("Akismet can&#8217;t connect to your site.", 'akismet'); ?></h3>
-	<p class="akismet-description"><?php printf( __('Your firewall may be blocking Akismet. Please contact your host and refer to <a href="%s" target="_blank">our guide about firewalls</a>.', 'akismet'), 'https://blog.akismet.com/akismet-hosting-faq/'); ?></p>
+	<p class="akismet-description"><?php printf( __('Your firewall may be blocking Akismet. Please contacts your host and refer to <a href="%s" target="_blank">our guide about firewalls</a>.', 'akismet'), 'https://blog.akismet.com/akismet-hosting-faq/'); ?></p>
 </div>
 <?php elseif ( $type == 'active-dunning' ) :?>
 <div class="akismet-alert akismet-critical">
@@ -62,7 +62,7 @@
 <?php elseif ( $type == 'suspended' ) :?>
 <div class="akismet-alert akismet-critical">
 	<h3 class="akismet-key-status failed"><?php esc_html_e("Your Akismet subscription is suspended.", 'akismet'); ?></h3>
-	<p class="akismet-description"><?php printf( __('Please contact <a href="%s" target="_blank">Akismet support</a> for assistance.', 'akismet'), 'https://akismet.com/contact/'); ?></p>
+	<p class="akismet-description"><?php printf( __('Please contacts <a href="%s" target="_blank">Akismet support</a> for assistance.', 'akismet'), 'https://akismet.com/contacts/'); ?></p>
 </div>
 <?php elseif ( $type == 'active-notice' && $time_saved ) :?>
 <div class="akismet-alert akismet-active">
@@ -72,7 +72,7 @@
 <?php elseif ( $type == 'missing' ) :?>
 <div class="akismet-alert akismet-critical">
 	<h3 class="akismet-key-status failed"><?php esc_html_e( 'There is a problem with your API key.', 'akismet'); ?></h3>
-	<p class="akismet-description"><?php printf( __('Please contact <a href="%s" target="_blank">Akismet support</a> for assistance.', 'akismet'), 'https://akismet.com/contact/'); ?></p>
+	<p class="akismet-description"><?php printf( __('Please contacts <a href="%s" target="_blank">Akismet support</a> for assistance.', 'akismet'), 'https://akismet.com/contacts/'); ?></p>
 </div>
 <?php elseif ( $type == 'no-sub' ) :?>
 <div class="akismet-alert akismet-critical">
@@ -80,7 +80,7 @@
 	<p class="akismet-description">
 		<?php printf( __( 'In 2012, Akismet began using subscription plans for all accounts (even free ones). A plan has not been assigned to your account, and we&#8217;d appreciate it if you&#8217;d <a href="%s" target="_blank">sign into your account</a> and choose one.', 'akismet'), 'https://akismet.com/account/upgrade/' ); ?>
 		<br /><br />
-		<?php printf( __( 'Please <a href="%s" target="_blank">contact our support team</a> with any questions.', 'akismet' ), 'https://akismet.com/contact/' ); ?>
+		<?php printf( __( 'Please <a href="%s" target="_blank">contacts our support team</a> with any questions.', 'akismet' ), 'https://akismet.com/contacts/' ); ?>
 	</p>
 </div>
 <?php elseif ( $type == 'new-key-valid' ) :
@@ -107,7 +107,7 @@
 </div>
 <?php elseif ( $type == 'existing-key-invalid' ) :?>
 <div class="akismet-alert akismet-critical">
-	<h3 class="akismet-key-status"><?php esc_html_e( 'Your API key is no longer valid. Please enter a new key or contact support@akismet.com.' , 'akismet'); ?></h3>
+	<h3 class="akismet-key-status"><?php esc_html_e( 'Your API key is no longer valid. Please enter a new key or contacts support@akismet.com.' , 'akismet'); ?></h3>
 </div>
 <?php elseif ( $type == 'new-key-failed' ) :?>
 <div class="akismet-alert akismet-critical">
@@ -121,14 +121,14 @@
 	<p class="akismet-description">
 		<?php printf( __( 'Your Pro subscription allows the use of Akismet on only one site. Please <a href="%s" target="_blank">purchase additional Pro subscriptions</a> or upgrade to an Enterprise subscription that allows the use of Akismet on unlimited sites.', 'akismet' ), 'https://docs.akismet.com/billing/add-more-sites/' ); ?>
 		<br /><br />
-		<?php printf( __( 'Please <a href="%s" target="_blank">contact our support team</a> with any questions.', 'akismet' ), 'https://akismet.com/contact/'); ?>
+		<?php printf( __( 'Please <a href="%s" target="_blank">contacts our support team</a> with any questions.', 'akismet' ), 'https://akismet.com/contacts/'); ?>
 	</p>
 	<?php elseif ( $level == 'red' ): ?>
 	<h3 class="akismet-key-status failed"><?php esc_html_e( 'You&#8217;re using Akismet on far too many sites for your Pro subscription.', 'akismet' ); ?></h3>
 	<p class="akismet-description">
 		<?php printf( __( 'To continue your service, <a href="%s" target="_blank">upgrade to an Enterprise subscription</a>, which covers an unlimited number of sites.', 'akismet'), 'https://akismet.com/account/upgrade/' ); ?>
 		<br /><br />
-		<?php printf( __( 'Please <a href="%s" target="_blank">contact our support team</a> with any questions.', 'akismet' ), 'https://akismet.com/contact/'); ?>
+		<?php printf( __( 'Please <a href="%s" target="_blank">contacts our support team</a> with any questions.', 'akismet' ), 'https://akismet.com/contacts/'); ?>
 	</p>
 	<?php endif; ?>
 </div>
