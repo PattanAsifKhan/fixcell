@@ -55,7 +55,7 @@ if (!isset($_COOKIE['brand']) or !isset($_COOKIE['model'])) {
                         <a href="/support/faq/">FAQ</a>
                         <a href="/support/contacts/">Contact us</a>
                         <a href="#">Feedback</a>
-                        <a href="#">Career</a>
+                        <a href="/support/careers/">Career</a>
                     </div>
                 </li>
             </ul>
