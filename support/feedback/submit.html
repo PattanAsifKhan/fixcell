@@ -2,9 +2,73 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Fixcell</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/bootstrap.min.css"
+          rel="stylesheet"><!-- Optional theme -->
+    <link href="/css/bootstrap-theme.min.css"
+          rel="stylesheet"><!-- Latest compiled and minified JavaScript -->
+    <script src="/jquery-3.1.1.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <link href="/style.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
 </head>
 <body>
 
+<div class="navbar navbar-default"
+     style="-webkit-border-radius: 0;-moz-border-radius: 0;border-radius: 0; margin-bottom: 0px;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar"
+                    style="vertical-align: middle; margin-top: 15px">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/" style="height: auto;">
+                <img src="/images/fixcell.png" alt="fixcell"
+                     style="display: inline;"/><span><strong>ixcell</strong></span>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="nav nav-pills nav-justified navbar-right nav-over-video" style="margin-top: 10px;">
+                <li><a href="/">Home</a></li>
+                <li class="active"><a href="/repair/">Repair</a></li>
+                <li><a href="/services">Service</a></li>
+                <li class="dropdown">
+                    <a>
+                        <div class="dropbtn">Support</div>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="/support/faq/">FAQ</a>
+                        <a href="/support/contacts/">Contact us</a>
+                        <a href="/support/feedback/">Feedback</a>
+                        <a href="/support/careers/">Career</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="tick-image">
+    <img class="center-block" src="/images/done.svg" height="250px" width="250px">
+    <h2 class="text-center"><strong>Your Feedback is submitted</strong></h2>
+    <h4 class="text-center"><strong>It will help us to improve</strong></h4>
+</div>
+
 </body>
+<div id="footer"></div>
+<script>
+    $(document).ready(function () {
+        $("#footer").load("/footer.html");
+    });
+</script>
 </html>
+<style>
+    .tick-image{
+        margin-top: 9%;
+    }
+
+
+</style>
