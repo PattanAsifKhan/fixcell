@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fixcell</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/bootstrap.min.css"
+          rel="stylesheet"><!-- Optional theme -->
+    <link href="/css/bootstrap-theme.min.css"
+          rel="stylesheet"><!-- Latest compiled and minified JavaScript -->
+    <script src="/jquery-3.1.1.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <link href="/style.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+</head>
+<body>
+
+
+<div class="navbar navbar-default"
+     style="-webkit-border-radius: 0;-moz-border-radius: 0;border-radius: 0; margin-bottom: 0px;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar"
+                    style="vertical-align: middle; margin-top: 15px">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/" style="height: auto;">
+                <img src="/images/fixcell.png" alt="fixcell"
+                     style="display: inline;"/><span><strong>ixcell</strong></span>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="nav nav-pills nav-justified navbar-right nav-over-video" style="margin-top: 10px;">
+                <li><a href="/">Home</a></li>
+                <li><a href="/repair/">Repair</a></li>
+                <li><a href="/services">Service</a></li>
+                <li class="dropdown active">
+                    <a>
+                        <div class="dropbtn">Support</div>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="/support/faq/">FAQ</a>
+                        <a href="/support/contacts/">Contact us</a>
+                        <a href="/support/feedback/">Feedback</a>
+                        <a href="/support/careers/">Career</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="page-header">
+        <h1 class="text-primary">Feedback</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <form action="/action_page.php">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="fname">First Name</label>
+                            <input class="form-control" required type="text" id="fname" name="firstname"
+                                   placeholder="First Name">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="lname">Last Name</label>
+                            <input class="form-control" required type="text" id="lname" name="lastname"
+                                   placeholder="Last Name">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="email">Email Address</label>
+                            <input class="form-control" required type="email" id="email" name="email"
+                                   placeholder="Email">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="phone">Phone no.</label>
+                            <input class="form-control" required type="tel" id="phone" name="phone" placeholder="Phone">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="subject">Feedback</label>
+                            <textarea class="form-control" required id="subject" name="subject" placeholder="Enter your feedback"
+                                      style="height:200px"></textarea>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <input class="form-control btn btn-primary" type="submit" value="Send your message">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
