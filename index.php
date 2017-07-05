@@ -76,21 +76,21 @@
                     <div class="panel-primary">
                         <h3 class="text-primary">Generate</h3>
                         <h4 style="color: #555;">Online Order</h4>
-                        <img src="images/generate_online.jpg"/>
+                        <img src="images/generate_online.png"/>
                     </div>
                 </div>
                 <div class="col-sm-4 col-xs-6">
                     <div class="panel-primary">
                         <h3 class="text-primary">Diagnosis & Repair</h3>
                         <h4 style="color: #555;">at Doorstep</h4>
-                        <img src="images/diagnosis_repair.jpg"/>
+                        <img src="images/diagnosis_repair.png"/>
                     </div>
                 </div>
                 <div class="col-sm-4 col-xs-12">
                     <div class="panel-primary">
                         <h3 class="text-primary">Pay</h3>
                         <h4 style="color: #555;">After Repair</h4>
-                        <img src="images/receive_mobile.jpg"/>
+                        <img src="images/receive_mobile.png"/>
                     </div>
                 </div>
             </div>
@@ -193,7 +193,7 @@ echo "</script>";
             .appendTo(first_inner);
 
         $.each(feedbacks, function (i) {
-            if (i != 0) {
+            if (i !== 0) {
                 $("<li/>")
                     .attr("data-target", "#feeds")
                     .attr("data-slide-to", "" + i)
