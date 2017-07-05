@@ -54,8 +54,9 @@
 <div class="jumbotron">
     <div class="overlay text-center" style="display: table;">
         <div style="display: table-cell; vertical-align: middle; color: #fff;">
-            <a href="/repair/">
-                <div class="btn btn-primary" style="font-size: 1.5em;">fix it!</div>
+                <img src="images/fixcellfirst.png" style="height: 200px;width: 200px; padding-bottom: ">
+            <a style="display: block;" href="/repair/">
+                <div class="btn btn-primary" style="font-size: 1.5em; ">fix it!</div>
             </a>
         </div>
     </div>
