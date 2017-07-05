@@ -74,21 +74,21 @@
                 <h2 style="padding-top: 30px;" class="text-primary">How it Works?</h2>
                 <div class="col-sm-4 col-xs-6">
                     <div class="panel-primary">
-                        <h3 class="text-primary">Generate</h3>
+                        <h3>Generate</h3>
                         <h4 style="color: #555;">Online Order</h4>
                         <img src="images/generate_online.png"/>
                     </div>
                 </div>
                 <div class="col-sm-4 col-xs-6">
                     <div class="panel-primary">
-                        <h3 class="text-primary">Diagnosis & Repair</h3>
+                        <h3>Diagnosis & Repair</h3>
                         <h4 style="color: #555;">at Doorstep</h4>
                         <img src="images/diagnosis_repair.png"/>
                     </div>
                 </div>
                 <div class="col-sm-4 col-xs-12">
                     <div class="panel-primary">
-                        <h3 class="text-primary">Pay</h3>
+                        <h3>Pay</h3>
                         <h4 style="color: #555;">After Repair</h4>
                         <img src="images/receive_mobile.png"/>
                     </div>
@@ -102,7 +102,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h2>Why Fixcell?</h2>
+                <h2 class="text-primary">Why Fixcell?</h2>
                 <div class="col-sm-4 col-xs-6">
                     <div class="panel-primary">
                         <h3>Instant Repair</h3>
