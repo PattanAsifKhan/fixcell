@@ -125,9 +125,9 @@
 
 <?php
 
-error_reporting(E_ALL | E_STRICT);
-ini_set("display_errors", 1);
-ini_set("html_errors", 1);
+//error_reporting(E_ALL | E_STRICT);
+//ini_set("display_errors", 1);
+//ini_set("html_errors", 1);
 
 $conn = mysqli_connect('localhost', 'root', 'avi', 'fixcell');
 
@@ -296,5 +296,8 @@ echo "</script>";
         background-color: white;
     }
 
+    #carousel-inner div {
+        margin: 20%;
+    }
 
 </style>
