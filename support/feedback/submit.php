@@ -9,7 +9,7 @@ $feedback = $_POST['feedback'];
 
 $conn = mysqli_connect('localhost', 'root', 'avi', 'fixcell');
 
-$query = "INSERT INTO feedbacks values(null,'$name','$email','$phone','$feedback')";
+$query = "INSERT INTO feedbacks('name','email','phone','feedback') values('$name','$email','$phone','$feedback')";
 
 mysqli_query($conn, $query);
 
