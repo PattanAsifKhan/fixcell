@@ -129,7 +129,7 @@ $conn = mysqli_connect('localhost', 'root', 'avi', 'fixcell');
 $query = "SELECT * FROM feedbacks where selected=1";
 
 $result = mysqli_query($conn, $query);
-echo $result;
+print_r($result);
 ?>
 
 <section id="feedbacks" style="margin-top: 70px; margin-bottom: 40px;">
