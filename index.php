@@ -157,11 +157,11 @@ echo "</script>";
         </div>
 
         <!-- Left and right controls -->
-        <a class="left carousel-control" href="#feeds" data-slide="prev">
+        <a class="left " href="#feeds" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left"></span>
             <span class="sr-only">Previous</span>
         </a>
-        <a class="right carousel-control" href="#feeds" data-slide="next">
+        <a class="right " href="#feeds" data-slide="next">
             <span class="glyphicon glyphicon-chevron-right"></span>
             <span class="sr-only">Next</span>
         </a>
