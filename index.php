@@ -135,36 +135,23 @@ $query = "SELECT * FROM feedbacks where selected=1";
 
 $result = mysqli_query($conn, $query);
 $rows = array();
-while($r = mysqli_fetch_assoc($result)) {
+while ($r = mysqli_fetch_assoc($result)) {
     $rows[] = $r;
 }
 echo "<script>";
-echo "var feedbacks=".json_encode($rows);
+echo "var feedbacks=" . json_encode($rows);
 echo "</script>";
 ?>
 
 <section id="feedbacks" style="margin-top: 70px; margin-bottom: 40px;">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div id="feeds" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
+        <ol id="carousel-indicators" class="carousel-indicators">
         </ol>
 
         <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="item active">
-                <img src="la.jpg" alt="Los Angeles">
-            </div>
+        <div id="carousel-inner" class="carousel-inner">
 
-            <div class="item">
-                <img src="chicago.jpg" alt="Chicago">
-            </div>
-
-            <div class="item">
-                <img src="ny.jpg" alt="New York">
-            </div>
         </div>
 
         <!-- Left and right controls -->
@@ -178,6 +165,38 @@ echo "</script>";
         </a>
     </div>
 </section>
+
+<script>
+    $carousel_indicator = $("#carousel-indicators");
+    $carousel_inner = $("#carousel-inner");
+
+    if (feedbacks.length == 0) {
+        $("#feedbacks").hide();
+    } else {
+        $("<li/>")
+            .attr("data-target", "#feeds")
+            .attr("data-slide-to", "0")
+            .addClass("active")
+            .appendTo($carousel_indicator);
+
+        var first_inner = $("<div/>")
+            .addClass("item")
+            .addClass("active")
+            .appendTo($carousel_inner);
+
+        $("<h4/>")
+            .html(feedbacks[0]['name'])
+            .appendTo(first_inner);
+
+        $("<p/>")
+            .html(feedbacks[0]['feedback'])
+            .appendTo(first_inner);
+
+        $.each(feedbacks, function (i) {
+
+        });
+    }
+</script>
 
 <!--footer-->
 <div id="footer"></div>
