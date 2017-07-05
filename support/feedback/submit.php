@@ -10,4 +10,5 @@ $query = "INSERT INTO feedbacks values('$name','$email','$phone','$feedback')";
 
 mysqli_query($conn, $query);
 
+include "submit.html";
 ?>
