@@ -12,9 +12,9 @@
     <script src="/js/bootstrap.min.js"></script>
     <link href="/style.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
 </head>
 <body>
-
 <div class="navbar navbar-default"
      style="-webkit-border-radius: 0;-moz-border-radius: 0;border-radius: 0; margin-bottom: 0px;">
     <div class="container-fluid">
@@ -31,17 +31,17 @@
             </a>
         </div>
         <div class="collapse navbar-collapse" id="navbar">
-            <ul class="nav nav-pills nav-justified navbar-right nav-over-video" style="margin-top: 10px;">
-                <li><a href="/">Home</a></li>
-                <li class="active"><a href="/repair/">Repair</a></li>
-                <li><a href="/services">Service</a></li>
+            <ul class="nav nav-justified navbar-right nav-over-video" style="margin-top: 10px;">
+                <li></li>
+                <li><a href="/repair/"><strong>Repair</strong></a></li>
+                <li><a href="/services"><strong>Service</strong></a></li>
                 <li class="dropdown">
                     <a>
-                        <div class="dropbtn">Support</div>
+                        <div class="dropbtn"><strong>Support</strong></div>
                     </a>
                     <div class="dropdown-content">
-                        <a href="/support/faq/">FAQ</a>
-                        <a href="/support/contacts/">Contact us</a>
+                        <a href="/support/faq">FAQ</a>
+                        <a href="/support/contacts/index.html">Contact us</a>
                         <a href="/support/feedback/">Feedback</a>
                         <a href="/support/careers/">Career</a>
                     </div>
@@ -50,25 +50,28 @@
         </div>
     </div>
 </div>
-
-<div class="tick-image">
-    <img class="center-block" src="/images/done.svg" height="250px" width="250px">
-    <h2 class="text-center"><strong>Your Feedback is submitted</strong></h2>
-    <h4 class="text-center"><strong>It will help us to improve</strong></h4>
+<div class="container" style="margin-top: 20px">
+<?php
+    include "privacypolicy.html";
+?>
 </div>
-
-</body>
 <div id="footer"></div>
 <script>
     $(document).ready(function () {
         $("#footer").load("/footer.html");
     });
+    $(function () {
+        $(document).scroll(function () {
+            var $nav = $(".navbar-fixed-top");
+            $nav.toggleClass('navbar-default', $(this).scrollTop() > $nav.height());
+            $(".nav").toggleClass("nav-over-video", $(this).scrollTop() < $nav.height());
+            if ($(this).scrollTop() > $nav.height()) {
+                $(".icon-bar").css({'background-color': '#888 !important'});
+                console.log($(".icon-bar"));
+            }
+        });
+    });
+
 </script>
+</body>
 </html>
-<style>
-    .tick-image{
-        margin-top: 5%;
-    }
-
-
-</style>
