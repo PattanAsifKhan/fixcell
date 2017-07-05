@@ -102,19 +102,22 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h2>Why Repair at fixcell?</h2>
+                <h2>Why Fixcell?</h2>
                 <div class="col-sm-4 col-xs-6">
                     <div class="panel-primary">
+                        <h3>Instant Repair</h3>
                         <img src="images/instantrepair.png"/>
                     </div>
                 </div>
                 <div class="col-sm-4 col-xs-6">
                     <div class="panel-primary">
+                        <h3>Data Security</h3>
                         <img src="images/datasecurity.png"/>
                     </div>
                 </div>
                 <div class="col-sm-4 col-xs-6">
                     <div class="panel-primary">
+                        <h3>Cash On Repair</h3>
                         <img src="images/cashonrepair.png"/>
                     </div>
                 </div>
