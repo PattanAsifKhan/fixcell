@@ -134,7 +134,11 @@ $conn = mysqli_connect('localhost', 'root', 'avi', 'fixcell');
 $query = "SELECT * FROM feedbacks where selected=1";
 
 $result = mysqli_query($conn, $query);
-print_r($result);
+$rows = array();
+while($r = mysqli_fetch_assoc($result)) {
+    $rows[] = $r;
+}
+print json_encode($rows);
 ?>
 
 <section id="feedbacks" style="margin-top: 70px; margin-bottom: 40px;">
