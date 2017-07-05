@@ -138,7 +138,9 @@ $rows = array();
 while($r = mysqli_fetch_assoc($result)) {
     $rows[] = $r;
 }
-print json_encode($rows);
+echo "<script>";
+echo "var feedbacks=".json_encode($rows);
+echo "</script>";
 ?>
 
 <section id="feedbacks" style="margin-top: 70px; margin-bottom: 40px;">
