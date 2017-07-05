@@ -296,7 +296,7 @@ echo "</script>";
         background-color: white;
     }
 
-    #carousel-inner div {
+    .carousel-inner div {
         margin: 20%;
     }
 
