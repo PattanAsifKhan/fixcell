@@ -145,10 +145,6 @@ echo "</script>";
 
 <section id="feedbacks" style="margin-top: 70px; margin-bottom: 40px;">
     <div id="feeds" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol id="carousel-indicators" class="carousel-indicators">
-        </ol>
-
         <!-- Wrapper for slides -->
         <div id="carousel-inner" class="carousel-inner">
 
@@ -167,17 +163,11 @@ echo "</script>";
 </section>
 
 <script>
-    $carousel_indicator = $("#carousel-indicators");
     $carousel_inner = $("#carousel-inner");
 
     if (feedbacks.length == 0) {
         $("#feedbacks").hide();
     } else {
-        $("<li/>")
-            .attr("data-target", "#feeds")
-            .attr("data-slide-to", "0")
-            .addClass("active")
-            .appendTo($carousel_indicator);
 
         var first_inner = $("<div/>")
             .addClass("item")
@@ -194,10 +184,6 @@ echo "</script>";
 
         $.each(feedbacks, function (i) {
             if (i !== 0) {
-                $("<li/>")
-                    .attr("data-target", "#feeds")
-                    .attr("data-slide-to", "" + i)
-                    .appendTo($carousel_indicator);
 
                 var first_inner = $("<div/>")
                     .addClass("item")
