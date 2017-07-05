@@ -27,7 +27,7 @@
             </button>
             <a class="navbar-brand" href="/" style="height: auto;">
                 <img src="/images/fixcell.png" alt="fixcell"
-                     style="display: inline;"/><span><strong>ixcell</strong></span>
+                     style="display: inline;"/><span></span>
             </a>
         </div>
         <div class="collapse navbar-collapse" id="navbar">
@@ -54,9 +54,9 @@
 <div class="jumbotron">
     <div class="overlay text-center" style="display: table;">
         <div style="display: table-cell; vertical-align: middle; color: #fff;">
-            <h1>Fixcell</h1>
-            <a href="/repair/">
-                <div class="btn btn-primary" style="font-size: 1.5em;">Repair</div>
+                <img src="images/fixcellfirst.png" style="height: 200px;width: 200px; padding-bottom: ">
+            <a style="display: block;" href="/repair/">
+                <div class="btn btn-primary" style="font-size: 1.5em; ">fix it!</div>
             </a>
         </div>
     </div>
@@ -122,6 +122,98 @@
         </div>
     </div>
 </section>
+
+<?php
+
+error_reporting(E_ALL | E_STRICT);
+ini_set("display_errors", 1);
+ini_set("html_errors", 1);
+
+$conn = mysqli_connect('localhost', 'root', 'avi', 'fixcell');
+
+$query = "SELECT * FROM feedbacks where selected=1";
+
+$result = mysqli_query($conn, $query);
+$rows = array();
+while ($r = mysqli_fetch_assoc($result)) {
+    $rows[] = $r;
+}
+echo "<script>";
+echo "var feedbacks=" . json_encode($rows);
+echo "</script>";
+?>
+
+<section id="feedbacks" style="margin-top: 70px; margin-bottom: 40px;">
+    <div id="feeds" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol id="carousel-indicators" class="carousel-indicators">
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div id="carousel-inner" class="carousel-inner">
+
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#feeds" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#feeds" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</section>
+
+<script>
+    $carousel_indicator = $("#carousel-indicators");
+    $carousel_inner = $("#carousel-inner");
+
+    if (feedbacks.length == 0) {
+        $("#feedbacks").hide();
+    } else {
+        $("<li/>")
+            .attr("data-target", "#feeds")
+            .attr("data-slide-to", "0")
+            .addClass("active")
+            .appendTo($carousel_indicator);
+
+        var first_inner = $("<div/>")
+            .addClass("item")
+            .addClass("active")
+            .appendTo($carousel_inner);
+
+        $("<h4/>")
+            .html(feedbacks[0]['name'])
+            .appendTo(first_inner);
+
+        $("<p/>")
+            .html(feedbacks[0]['feedback'])
+            .appendTo(first_inner);
+
+        $.each(feedbacks, function (i) {
+            if (i != 0) {
+                $("<li/>")
+                    .attr("data-target", "#feeds")
+                    .attr("data-slide-to", "" + i)
+                    .appendTo($carousel_indicator);
+
+                var first_inner = $("<div/>")
+                    .addClass("item")
+                    .appendTo($carousel_inner);
+
+                $("<h4/>")
+                    .html(feedbacks[i]['name'])
+                    .appendTo(first_inner);
+
+                $("<p/>")
+                    .html(feedbacks[i]['feedback'])
+                    .appendTo(first_inner);
+            }
+        });
+    }
+</script>
 
 <!--footer-->
 <div id="footer"></div>
