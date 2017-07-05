@@ -193,7 +193,22 @@ echo "</script>";
             .appendTo(first_inner);
 
         $.each(feedbacks, function (i) {
+            $("<li/>")
+                .attr("data-target", "#feeds")
+                .attr("data-slide-to", "" + i)
+                .appendTo($carousel_indicator);
 
+            var first_inner = $("<div/>")
+                .addClass("item")
+                .appendTo($carousel_inner);
+
+            $("<h4/>")
+                .html(feedbacks[0]['name'])
+                .appendTo(first_inner);
+
+            $("<p/>")
+                .html(feedbacks[0]['feedback'])
+                .appendTo(first_inner);
         });
     }
 </script>
