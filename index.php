@@ -123,6 +123,15 @@
     </div>
 </section>
 
+<?php
+$conn = mysqli_connect('localhost', 'root', 'avi', 'fixcell');
+
+$query = "SELECT * FROM feedbacks where selected=1";
+
+$result = mysqli_query($conn, $query);
+echo $result;
+?>
+
 <section id="feedbacks" style="margin-top: 70px; margin-bottom: 40px;">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
