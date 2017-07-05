@@ -144,6 +144,9 @@ echo "</script>";
 ?>
 
 <section id="feedbacks" style="margin-top: 70px; margin-bottom: 40px;">
+    <div class="text-center">
+        <h2>Recent Feedbacks</h2>
+    </div>
     <div id="feeds" class="carousel slide" data-ride="carousel">
         <!-- Wrapper for slides -->
         <div id="carousel-inner" class="carousel-inner">
