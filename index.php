@@ -298,6 +298,7 @@ echo "</script>";
 
     .carousel-inner div {
         margin: auto 20%;
+        text-align: center;
     }
 
 </style>
