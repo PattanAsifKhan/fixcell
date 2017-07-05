@@ -203,11 +203,11 @@ echo "</script>";
                     .appendTo($carousel_inner);
 
                 $("<h4/>")
-                    .html(feedbacks[0]['name'])
+                    .html(feedbacks[i]['name'])
                     .appendTo(first_inner);
 
                 $("<p/>")
-                    .html(feedbacks[0]['feedback'])
+                    .html(feedbacks[i]['feedback'])
                     .appendTo(first_inner);
             }
         });
