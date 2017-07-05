@@ -42,8 +42,10 @@
 .footer {
     /*height: 280px;*/
     width: 100%;
-    background: url(/images/footer-bg.jpg) repeat-x;
+    background-color: #323232;
+    /*background: url(/images/footer-bg.jpg) repeat;*/
     float: left;
+    padding-bottom: 30px;
 }
 
 .footer h2 {
@@ -54,26 +56,20 @@
     font-family: "Open Sans", sans-serif;
 }
 
-.footer ul li {
-    width: 33%;
-    float: left;
-    padding-bottom: 4px;
-}
-
-.footer ul li ul {
+.footer div div ul {
     width: 100%;
     float: left;
     margin-top: 0;
     padding: 13px 0 9px;
 }
 
-.footer ul li ul li {
+.footer div div ul li {
     width: 100%;
     margin: 0;
     padding: 0;
 }
 
-.footer ul li ul li a {
+.footer div div ul li a {
     color: #b2b2b2;
 }
 
@@ -84,7 +80,7 @@
 }
 
 body {
-    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Ubuntu Light" ,sans-serif !important;
 }
 
 .dropbtn {

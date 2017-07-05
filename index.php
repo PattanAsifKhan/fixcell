@@ -42,7 +42,7 @@
                     <div class="dropdown-content">
                         <a href="/support/faq">FAQ</a>
                         <a href="/support/contacts/index.html">Contact us</a>
-                        <a href="#">Feedback</a>
+                        <a href="/support/feedback/">Feedback</a>
                         <a href="/support/careers/">Career</a>
                     </div>
                 </li>
@@ -102,22 +102,17 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
                 <h2>Why Repair at fixcell?</h2>
-                <div class="col-sm-3 col-xs-6">
-                    <div class="panel-primary">
-                        <img src="images/warranty.png"/>
-                    </div>
-                </div>
-                <div class="col-sm-3 col-xs-6">
+                <div class="col-sm-4 col-xs-6">
                     <div class="panel-primary">
                         <img src="images/instantrepair.png"/>
                     </div>
                 </div>
-                <div class="col-sm-3 col-xs-6">
+                <div class="col-sm-4 col-xs-6">
                     <div class="panel-primary">
                         <img src="images/datasecurity.png"/>
                     </div>
                 </div>
-                <div class="col-sm-3 col-xs-6">
+                <div class="col-sm-4 col-xs-6">
                     <div class="panel-primary">
                         <img src="images/cashonrepair.png"/>
                     </div>
@@ -126,6 +121,98 @@
         </div>
     </div>
 </section>
+
+<?php
+
+error_reporting(E_ALL | E_STRICT);
+ini_set("display_errors", 1);
+ini_set("html_errors", 1);
+
+$conn = mysqli_connect('localhost', 'root', 'avi', 'fixcell');
+
+$query = "SELECT * FROM feedbacks where selected=1";
+
+$result = mysqli_query($conn, $query);
+$rows = array();
+while ($r = mysqli_fetch_assoc($result)) {
+    $rows[] = $r;
+}
+echo "<script>";
+echo "var feedbacks=" . json_encode($rows);
+echo "</script>";
+?>
+
+<section id="feedbacks" style="margin-top: 70px; margin-bottom: 40px;">
+    <div id="feeds" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol id="carousel-indicators" class="carousel-indicators">
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div id="carousel-inner" class="carousel-inner">
+
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#feeds" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#feeds" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</section>
+
+<script>
+    $carousel_indicator = $("#carousel-indicators");
+    $carousel_inner = $("#carousel-inner");
+
+    if (feedbacks.length == 0) {
+        $("#feedbacks").hide();
+    } else {
+        $("<li/>")
+            .attr("data-target", "#feeds")
+            .attr("data-slide-to", "0")
+            .addClass("active")
+            .appendTo($carousel_indicator);
+
+        var first_inner = $("<div/>")
+            .addClass("item")
+            .addClass("active")
+            .appendTo($carousel_inner);
+
+        $("<h4/>")
+            .html(feedbacks[0]['name'])
+            .appendTo(first_inner);
+
+        $("<p/>")
+            .html(feedbacks[0]['feedback'])
+            .appendTo(first_inner);
+
+        $.each(feedbacks, function (i) {
+            if (i != 0) {
+                $("<li/>")
+                    .attr("data-target", "#feeds")
+                    .attr("data-slide-to", "" + i)
+                    .appendTo($carousel_indicator);
+
+                var first_inner = $("<div/>")
+                    .addClass("item")
+                    .appendTo($carousel_inner);
+
+                $("<h4/>")
+                    .html(feedbacks[0]['name'])
+                    .appendTo(first_inner);
+
+                $("<p/>")
+                    .html(feedbacks[0]['feedback'])
+                    .appendTo(first_inner);
+            }
+        });
+    }
+</script>
 
 <!--footer-->
 <div id="footer"></div>
