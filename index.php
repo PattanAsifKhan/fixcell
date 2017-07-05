@@ -297,7 +297,7 @@ echo "</script>";
     }
 
     .carousel-inner div {
-        margin: 20%;
+        margin: auto 20%;
     }
 
 </style>
