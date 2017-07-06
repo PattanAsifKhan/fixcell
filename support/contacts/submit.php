@@ -45,4 +45,4 @@ if ($httpcode == 403) {
     include 'login.php';
     goto start;
 }
-include "sumbit.html";
+include "submit.html";
