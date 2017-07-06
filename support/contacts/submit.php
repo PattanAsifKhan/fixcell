@@ -31,8 +31,7 @@ curl_setopt_array($curl, array(
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     CURLOPT_CUSTOMREQUEST => "POST",
     CURLOPT_HTTPHEADER => array(
-        "cache-control: no-cache",
-        "postman-token: af75025f-34c1-df92-c75d-7c44f96b367a"
+        "cache-control: no-cache"
     ),
 ));
 
@@ -41,8 +40,10 @@ $err = curl_error($curl);
 $httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
 curl_close($curl);
+
 if ($httpcode == 403) {
     include 'login.php';
     goto start;
 }
 include "submit.html";
+?>
