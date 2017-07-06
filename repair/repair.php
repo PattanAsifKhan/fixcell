@@ -113,7 +113,7 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
 
     curl_close($curl);
 
-    if ($httpcode == 403 or $httpcode != 200) {
+    if ($httpcode == 403) {
         include 'login.php';
         goto start;
     }
