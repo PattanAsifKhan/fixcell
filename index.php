@@ -33,9 +33,9 @@
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav nav-justified navbar-right nav-over-video" style="margin-top: 10px;">
                 <li></li>
-                <li><a href="/repair/"><strong>Repair</strong></a></li>
-                <li><a href="/services"><strong>Service</strong></a></li>
-                <li class="dropdown">
+                <li class="home-nav"><a href="/repair/"><strong>Repair</strong></a></li>
+                <li class="home-nav"><a href="/services"><strong>Service</strong></a></li>
+                <li class="dropdown home-nav">
                     <a>
                         <div class="dropbtn"><strong>Support</strong></div>
                     </a>
@@ -217,6 +217,8 @@ echo "</script>";
         $(document).scroll(function () {
             var $nav = $(".navbar-fixed-top");
             $nav.toggleClass('navbar-default', $(this).scrollTop() > $nav.height());
+            var $nav1 = $("li");
+            $nav1.toggleClass('home-nav', $(this).scrollTop() < $nav.height());
             $(".nav").toggleClass("nav-over-video", $(this).scrollTop() < $nav.height());
             if ($(this).scrollTop() > $nav.height()) {
                 $(".icon-bar").css({'background-color': '#888 !important'});
@@ -229,6 +231,9 @@ echo "</script>";
 </body>
 </html>
 <style>
+    .home-nav:hover{
+        background-color: orangered;
+    }
     .jumbotron {
         background-color: #000000;
         background-image: url(/images/mobile.jpg);
