@@ -231,8 +231,8 @@ echo "</script>";
 </body>
 </html>
 <style>
-    .home-nav:hover{
-        background-color: orangered;
+    .home-nav a:hover{
+        background-color: orangered !important;
     }
     .jumbotron {
         background-color: #000000;
