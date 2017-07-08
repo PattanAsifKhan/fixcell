@@ -82,7 +82,7 @@
             placeholder: "Select Brand",
             data: data
         });
-        $brandSelect2.select2("val", ' ');
+        $brandSelect2.select2("val", "All");
     });
 
     $modelSelect2.select2({
