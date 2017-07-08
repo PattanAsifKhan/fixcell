@@ -56,19 +56,20 @@
         </div>
     </div>
 </div>
-
-<div id="content-div" class="thumbnail center-block" style="margin-top: 5%">
-    <div class="form-group">
-        <label for="brand-list">Brand</label>
-        <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-            <select class="form-control" id="brand-list"> </select>
-        </div>
-        <br>
-        <label for="brand-list">Model</label>
-        <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-            <select class="form-control" id="model-list"></select>
+<div style="height: 100vh;">
+    <div id="content-div" class="thumbnail center-block" style="margin: auto 10%;">
+        <div class="form-group">
+            <label for="brand-list">Brand</label>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                <select class="form-control" id="brand-list"> </select>
+            </div>
+            <br>
+            <label for="brand-list">Model</label>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                <select class="form-control" id="model-list"></select>
+            </div>
         </div>
     </div>
 </div>
