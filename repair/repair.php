@@ -93,7 +93,7 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
 }
 ?>
 <div class="container">
-    <div class="page-header" style="border: none;">
+    <div>
         <h1 style="display: inline;">
             <?php
             echo $brand;
