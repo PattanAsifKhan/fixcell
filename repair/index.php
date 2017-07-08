@@ -15,7 +15,8 @@
     <link href="/style.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
-
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
 </head>
@@ -56,7 +57,7 @@
         </div>
     </div>
 </div>
-<div style="height: 100vh;">
+<div style="height: 100vh;margin-top: 25vh;">
     <div id="content-div" class="thumbnail center-block" style="margin: auto 10%;">
         <div class="form-group">
             <label for="brand-list">Brand</label>
