@@ -93,27 +93,31 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
 }
 ?>
 <div class="container">
-    <div style="display: block;">
-        <h1 style="display: inline;">
-            <?php
-            echo $brand;
-            setcookie("brand", $brand);
-            ?>
-        </h1>
-        <h2 style="display: inline;">
-            <?php
-            echo $model;
-            setcookie("model", $model);
-            ?>
-        </h2>
-        <div style="float: right;">
-            <a href="checkout.php" onclick="checkout()">
-                <div style="float: right; display: block;" class="btn btn-primary"><span
-                            class="glyphicon glyphicon-shopping-cart"></span>
-                    Checkout
+    <div class="row">
+        <div class="col-md-8 col-sm-12">
+            <h1 style="display: inline;">
+                <?php
+                echo $brand;
+                setcookie("brand", $brand);
+                ?>
+            </h1>
+            <h2 style="display: inline;">
+                <?php
+                echo $model;
+                setcookie("model", $model);
+                ?>
+            </h2>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div style="float: right;">
+                <a href="checkout.php" onclick="checkout()">
+                    <div style="float: right; display: block;" class="btn btn-primary"><span
+                                class="glyphicon glyphicon-shopping-cart"></span>
+                        Checkout
+                    </div>
+                </a>
+                <div>Current&nbsp;Cart&nbsp;Value:&nbsp;₹&nbsp;<span id="cart-price"></span>
                 </div>
-            </a>
-            <div>Current&nbsp;Cart&nbsp;Value:&nbsp;₹&nbsp;<span id="cart-price"></span>
             </div>
         </div>
     </div>
