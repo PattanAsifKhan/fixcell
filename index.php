@@ -81,7 +81,7 @@
                 </div>
                 <div class="col-sm-4 col-xs-4">
                     <div class="panel-primary">
-                        <h5>Diagnosis & Repair</h5>
+                        <h5>Repair</h5>
                         <h5 style="color: #555;">at Doorstep</h5>
                         <img src="images/diagnosis_repair.png"/>
                     </div>
