@@ -92,8 +92,8 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
     header("location: /repair/");
 }
 ?>
-<div class="page-header">
-    <div>
+<div class="container">
+    <div style="display: block;">
         <h1 style="display: inline;">
             <?php
             echo $brand;
