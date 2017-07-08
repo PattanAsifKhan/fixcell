@@ -147,6 +147,7 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
             .appendTo($container);
         var panel = $("<div/>")
             .addClass("panel")
+            .addClass("text-primary")
             .addClass("panel-default")
             .attr('id', 'service-' + i)
             .appendTo(col);
@@ -154,7 +155,6 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
             .addClass("panel-body")
             .appendTo(panel);
         var service_name = $("<h4/>")
-            .addClass("text-primary")
             .html(services[i][0])
             .appendTo(panel_body);
         var service_price = $("<h5/>")
@@ -166,7 +166,7 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
     });
 
     $(".panel").on("click", function () {
-        $(this).toggleClass("panel-default").toggleClass("panel-primary").toggleClass("text-primary");
+        $(this).toggleClass("panel-default").toggleClass("panel-primary").toggleClass("text-;
         $val = $(this).attr('id');
         console.log($val);
         $val = $val.split("-")[1];
