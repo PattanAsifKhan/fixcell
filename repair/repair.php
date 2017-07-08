@@ -160,7 +160,7 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
         var service_price = $("<h5/>")
             .addClass("text-primary")
             .addClass("badge")
-            .html("₹ " + services[i][1] + "/-")
+            .html("₹ " + parseFloat(services[i][1]).toFixed(2) + "/-")
             .appendTo(panel_body);
 
     });
