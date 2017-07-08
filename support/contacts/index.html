@@ -63,6 +63,28 @@
                 <h2>Customer Support</h2>
                 <span class="glyphicon glyphicon-phone"></span> +919949360232<br>
                 <span class="glyphicon glyphicon-envelope"></span><a href="mailto:team@fixcell.in"> team@fixcell.in</a>
+
+                <div id="map"></div>
+                <script>
+                    function initMap() {
+                        var uluru = {lat: 17.432602, lng: 78.387146};
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                            zoom: 18,
+                            center: uluru
+                        });
+                        var marker = new google.maps.Marker({
+                            position: uluru,
+                            map: map
+                        });
+                    }
+                </script>
+                <script async defer
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDef3mlXrlZnGG2ootoW2rjNPKDUpUUbEg&callback=initMap">
+                </script>
+
+
+
+
             </div>
             <div class="col-md-6">
                 <form action="/support/contacts/submit.php" method="post">
@@ -110,3 +132,11 @@
 
 </body>
 </html>
+<style>
+    #map {
+        height: 300px;
+        width: 100%;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+</style>

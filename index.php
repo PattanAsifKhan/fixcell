@@ -56,7 +56,7 @@
         <div style="display: table-cell; vertical-align: middle; color: #fff;">
                 <img src="images/fixcellfirst.png" style="height: 70px;width: auto; padding-bottom: ">
             <a style="display: block;" href="/repair/">
-                <div class="btn btn-primary" style="font-size: 1.5em; ">fix it!</div>
+                <div class="btn btn-primary" style="font-size: 1.5em; ">Fix it!</div>
             </a>
         </div>
     </div>
