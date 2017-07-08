@@ -166,7 +166,7 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
     });
 
     $(".panel").on("click", function () {
-        $(this).toggleClass("panel-default").toggleClass("panel-primary");
+        $(this).toggleClass("panel-default").toggleClass("panel-primary").toggleClass("text-primary");
         $val = $(this).attr('id');
         console.log($val);
         $val = $val.split("-")[1];
@@ -195,6 +195,7 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
         cursor: pointer;
         margin: 10px;
     }
+
     .panel-primary {
         background-color: orangered;
         color: #ffffff !important;
