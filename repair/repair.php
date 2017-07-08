@@ -182,8 +182,9 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
     function checkout() {
         var cart = [];
         for (var i = 0; i < selected_services.length; i++) {
-            cart.push([services[selected_services[i]][0],services[selected_services[i]][1]]);
+            cart.push(["" + services[selected_services[i]][0], parseFloat(services[selected_services[i]][1]]);
         }
+        console.log(cart);
         document.cookie = "cart=" + cart;
     }
 </script>
