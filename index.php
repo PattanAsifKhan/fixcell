@@ -241,7 +241,7 @@ echo "</script>";
         -webkit-background-size: cover;
         background-size: cover;
         background-position: center center;
-        height: 60vh;
+        height: 610px;
         overflow: hidden;
         padding: 0;
         position: relative;
