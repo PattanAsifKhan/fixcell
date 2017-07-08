@@ -78,12 +78,11 @@
     $modelSelect2 = $("#model-list");
 
     $.getJSON('getBrands.php', function (data) {
-//        console.log(data);
         $brandSelect2.select2({
             placeholder: "Select Brand",
             data: data
         });
-        $brandSelect2.select2("val", " ");
+        $brandSelect2.select2("val", "");
     });
 
     $modelSelect2.select2({
