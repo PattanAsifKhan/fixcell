@@ -182,7 +182,7 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
     function checkout() {
         var cart = [];
         for (var i = 0; i < selected_services.length; i++) {
-            cart.push(services[selected_services[i]]);
+            cart.push([services[selected_services[i]][0],services[selected_services[i]][1]]);
         }
         document.cookie = "cart=" + cart;
     }
