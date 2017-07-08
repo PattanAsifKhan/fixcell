@@ -93,27 +93,31 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
 }
 ?>
 <div class="container">
-    <div class="page-header" style="border: none;">
-        <h1 style="display: inline;">
-            <?php
-            echo $brand;
-            setcookie("brand", $brand);
-            ?>
-        </h1>
-        <h2 style="display: inline;">
-            <?php
-            echo $model;
-            setcookie("model", $model);
-            ?>
-        </h2>
-        <div style="float: right;">
-            <a href="checkout.php" onclick="checkout()">
-                <div style="float: right; display: block;" class="btn btn-primary"><span
-                            class="glyphicon glyphicon-shopping-cart"></span>
-                    Checkout
+    <div class="row">
+        <div class="col-md-8 col-sm-12">
+            <h1 style="display: inline;">
+                <?php
+                echo $brand;
+                setcookie("brand", $brand);
+                ?>
+            </h1>
+            <h2 style="display: inline;">
+                <?php
+                echo $model;
+                setcookie("model", $model);
+                ?>
+            </h2>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div style="float: right;">
+                <a href="checkout.php" onclick="checkout()">
+                    <div style="float: right; display: block;" class="btn btn-primary"><span
+                                class="glyphicon glyphicon-shopping-cart"></span>
+                        Checkout
+                    </div>
+                </a>
+                <div>Current&nbsp;Cart&nbsp;Value:&nbsp;₹&nbsp;<span id="cart-price"></span>
                 </div>
-            </a>
-            <div>Current&nbsp;Cart&nbsp;Value:&nbsp;₹&nbsp;<span id="cart-price"></span>
             </div>
         </div>
     </div>
@@ -147,6 +151,7 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
             .appendTo($container);
         var panel = $("<div/>")
             .addClass("panel")
+            .addClass("text-primary")
             .addClass("panel-default")
             .attr('id', 'service-' + i)
             .appendTo(col);
@@ -154,19 +159,18 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
             .addClass("panel-body")
             .appendTo(panel);
         var service_name = $("<h4/>")
-            .addClass("text-primary")
             .html(services[i][0])
             .appendTo(panel_body);
         var service_price = $("<h5/>")
             .addClass("text-primary")
             .addClass("badge")
-            .html("₹ " + services[i][1] + "/-")
+            .html("₹ " + parseFloat(services[i][1]).toFixed(2))
             .appendTo(panel_body);
 
     });
 
     $(".panel").on("click", function () {
-        $(this).toggleClass("panel-default").toggleClass("panel-primary");
+        $(this).toggleClass("panel-default").toggleClass("panel-primary").toggleClass("text-primary");
         $val = $(this).attr('id');
         console.log($val);
         $val = $val.split("-")[1];
@@ -182,7 +186,7 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
     function checkout() {
         var cart = [];
         for (var i = 0; i < selected_services.length; i++) {
-            cart.push([services[selected_services[i]][0],services[selected_services[i]][1]]);
+            cart.push(["" + services[selected_services[i]][0], services[selected_services[i]][1]]);
         }
         document.cookie = "cart=" + cart;
     }
@@ -194,5 +198,10 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
     .panel {
         cursor: pointer;
         margin: 10px;
+    }
+
+    .panel-primary {
+        background-color: orangered;
+        color: #ffffff !important;
     }
 </style>
