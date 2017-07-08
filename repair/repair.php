@@ -197,6 +197,6 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
     }
     .panel-primary {
         background-color: orangered;
-        color: #ffffff;
+        color: #ffffff !important;
     }
 </style>
