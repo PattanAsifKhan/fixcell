@@ -39,17 +39,17 @@
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav nav-pills nav-justified navbar-right nav-over-video" style="margin-top: 10px;">
                 <li><a href="/">Home</a></li>
-                <li class="active"><a href="/repair">Repair</a></li>
+                <li class="active"><a href="/repair/">Repair</a></li>
                 <li><a href="/services">Service</a></li>
                 <li class="dropdown">
                     <a>
                         <div class="dropbtn">Support</div>
                     </a>
                     <div class="dropdown-content">
-                        <a href="/support/faq">FAQ</a>
-                        <a href="/support/contacts">Contact us</a>
-                        <a href="/support/feedback">Feedback</a>
-                        <a href="/support/careers">Career</a>
+                        <a href="/support/faq/">FAQ</a>
+                        <a href="/support/contacts/">Contact us</a>
+                        <a href="/support/feedback/">Feedback</a>
+                        <a href="/support/careers/">Career</a>
                     </div>
                 </li>
             </ul>
@@ -59,9 +59,9 @@
 <?php
 
 
-//error_reporting(E_ALL | E_STRICT);
-//ini_set("display_errors", 1);
-//ini_set("html_errors", 1);
+error_reporting(E_ALL | E_STRICT);
+ini_set("display_errors", 1);
+ini_set("html_errors", 1);
 
 if (isset($_GET['brand']) and isset($_GET['model'])) {
     $brand = $_GET['brand'];
@@ -70,22 +70,125 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
     setcookie("cart", '', time() - 1000);
     setcookie("cart", '', time() - 1000, '/');
 
-    $conn = mysqli_connect("localhost", "root", "avi", "fixcell");
+    start:
+    if (!file_exists('sessionid')) {
+        include "login.php";
+        goto start;
+    }
+    $sessionKey = file_get_contents("sessionid");
+    $sessionKey = str_replace("@", "%40", $sessionKey);
 
-    $query = "SELECT type,price FROM services WHERE phone='$brand $model'";
+    $url1 = "https://www.rollbase.com/rest/api/selectQuery?" .
+        "sessionId=" . $sessionKey .
+        "&query=select%20id%20from%20phone%20where%20name%3D'" .
+        $brand . " " . $model .
+        "'" .
+        "&maxRows=1000000" .
+        "&output=json";
 
-    $result = mysqli_query($conn, $query);
+    $url1 = str_replace(" ", "%20", $url1);
+//    echo $url1;
 
-    $arr = array();
+    $curl = curl_init();
 
-    while ($r = $result->fetch_array()) {
-        $arr[] = $r;
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => $url1,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "POST",
+        CURLOPT_HTTPHEADER => array(
+            "cache-control: no-cache",
+            "postman-token: 2dfe9adb-4d5c-ddc0-c2b2-4be226a9e852"
+        ),
+    ));
+
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+    $httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+//    echo $response;
+
+    curl_close($curl);
+
+    if ($httpcode == 403) {
+        include 'login.php';
+        goto start;
+    }
+//    echo $response;
+    $response = preg_replace("/[\[\] ]+/", '', $response);
+//    echo $response;
+
+
+    $url = "https://www.rollbase.com/rest/api/getRelationships?" .
+        "sessionId=" . $sessionKey .
+        "&objName=Phone&id=" . $response .
+        "&relName=R353377550&output=json";
+//    echo $url;
+
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => $url,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+        CURLOPT_HTTPHEADER => array(
+            "cache-control: no-cache",
+            "postman-token: 097e4f50-9b61-5e24-7ff9-690ea91731eb"
+        ),
+    ));
+
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+
+    curl_close($curl);
+    $response = str_replace("[", "(", $response);
+    $response = str_replace("]", ")", $response);
+
+
+    $response = urlencode($response);
+    $url = "https://www.rollbase.com/rest/api/selectQuery?" .
+        "sessionId=" . $sessionKey .
+        "&query=" .
+        "select%20type_%2Cprice%20from%20service%20where%20id%20in%20" .
+        $response .
+        "&maxRows=1000000&output=json";
+
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => $url,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "POST",
+        CURLOPT_HTTPHEADER => array(
+            "cache-control: no-cache",
+            "postman-token: 9e7b25f9-7a1e-784e-d492-daaecbe1f83c"
+        ),
+    ));
+
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+    $httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+    curl_close($curl);
+
+    if ($httpcode == 403) {
+        include 'login.php';
+        goto start;
     }
 
-    mysqli_close($conn);
-
     echo "<script>";
-    echo "var services=" . json_encode($arr) . ";";
+    echo "var services=" . $response . ";";
     echo "</script>";
 
 } else {
@@ -134,7 +237,7 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
     function updatePrice() {
         var price = 0;
         for (var i = 0; i < selected_services.length; i++) {
-            price += parseFloat(services[selected_services[i]][1]);
+            price += services[selected_services[i]][1];
         }
         $("#cart-price").html(price.toFixed(2));
     }
