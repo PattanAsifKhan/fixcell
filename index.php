@@ -236,7 +236,7 @@ echo "</script>";
     }
     .jumbotron {
         background-color: #000000;
-        background-image: url(/images/backone.png);
+        background-image: url(/images/back3.jpg);
         background-repeat: no-repeat;
         -webkit-background-size: cover;
         background-size: cover;
