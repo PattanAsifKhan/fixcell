@@ -285,7 +285,7 @@ echo "</script>";
 
     @media only screen and (max-width: 768px) {
         video {
-            /*display: none !important;*/
+            display: none !important;
         }
     }
 
