@@ -195,4 +195,7 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
         cursor: pointer;
         margin: 10px;
     }
+    .panel-primary {
+        background-color: orangered;
+    }
 </style>
