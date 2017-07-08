@@ -70,7 +70,7 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
     setcookie("cart", '', time() - 1000);
     setcookie("cart", '', time() - 1000, '/');
 
-    $conn = mysqli_connect("localhost", "root", "san", "fixcell");
+    $conn = mysqli_connect("localhost", "root", "avi", "fixcell");
 
     $query = "SELECT type,price FROM services WHERE phone='$brand $model'";
 
