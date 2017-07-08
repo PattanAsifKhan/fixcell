@@ -59,9 +59,9 @@
 <?php
 
 
-//error_reporting(E_ALL | E_STRICT);
-//ini_set("display_errors", 1);
-//ini_set("html_errors", 1);
+error_reporting(E_ALL | E_STRICT);
+ini_set("display_errors", 1);
+ini_set("html_errors", 1);
 
 if (isset($_GET['brand']) and isset($_GET['model'])) {
     $brand = $_GET['brand'];
@@ -70,7 +70,7 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
     setcookie("cart", '', time() - 1000);
     setcookie("cart", '', time() - 1000, '/');
 
-    $conn = mysqli_connect("localhost", "root", "avi", "fixcell");
+    $conn = mysqli_connect("localhost", "root", "san", "fixcell");
 
     $query = "SELECT type,price FROM services WHERE phone='$brand $model'";
 
@@ -182,7 +182,7 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
     function checkout() {
         var cart = [];
         for (var i = 0; i < selected_services.length; i++) {
-            cart.push("" + services[selected_services[i]][0], parseFloat(services[selected_services[i]][1]);
+            cart.push(["" + services[selected_services[i]][0], services[selected_services[i]][1]]);
         }
         document.cookie = "cart=" + cart;
     }
