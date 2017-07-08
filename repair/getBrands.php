@@ -10,5 +10,6 @@ $arr = array();
 foreach ($result as $r) {
     $arr[] = $r['brand'];
 }
+mysqli_close($conn);
 
 echo json_encode($arr);
