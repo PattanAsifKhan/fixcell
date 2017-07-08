@@ -166,7 +166,7 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
     });
 
     $(".panel").on("click", function () {
-        $(this).toggleClass("panel-default").toggleClass("panel-primary").toggleClass("text-;
+        $(this).toggleClass("panel-default").toggleClass("panel-primary").toggleClass("text-primary");
         $val = $(this).attr('id');
         console.log($val);
         $val = $val.split("-")[1];
