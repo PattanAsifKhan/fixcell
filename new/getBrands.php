@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "san", "fixcell");
+$conn = mysqli_connect("localhost", "root", "avi", "fixcell");
 
 $query = "SELECT DISTINCT (brand) FROM phones ORDER BY brand;";
 
