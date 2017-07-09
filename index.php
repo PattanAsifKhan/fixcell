@@ -211,7 +211,7 @@ echo "</script>";
 <div id="footer"></div>
 <script>
     $(document).ready(function () {
-        $("#footer").load("/footer.html");
+        $("#footer").load("/footer.html?version=2");
     });
     $(function () {
         $(document).scroll(function () {
