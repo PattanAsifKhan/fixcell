@@ -253,7 +253,7 @@ echo "</script>";
         position: absolute;
         top: 0;
         left: 0;
-        background-color: hsla(0,0%,0%,0.75);
+        background-color: hsla(0,0%,0%,0.5);
         z-index: 10;
     }
 
