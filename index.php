@@ -36,12 +36,12 @@
                 <li class="home-nav"><a href="/repair/"><strong>Repair</strong></a></li>
                 <li class="home-nav"><a href="/services"><strong>Service</strong></a></li>
                 <li class="dropdown home-nav">
-                    <a>
+                    <a href="/support/faq/">
                         <div class="dropbtn"><strong>Support</strong></div>
                     </a>
                     <div class="dropdown-content">
-                        <a href="/support/faq">FAQ</a>
-                        <a href="/support/contacts/index.html">Contact us</a>
+                        <a href="/support/faq/">FAQ</a>
+                        <a href="/support/contacts/">Contact us</a>
                         <a href="/support/feedback/">Feedback</a>
                         <a href="/support/careers/">Career</a>
                     </div>
@@ -253,7 +253,7 @@ echo "</script>";
         position: absolute;
         top: 0;
         left: 0;
-        background-color: #00000077;
+        background-color: hsla(0,0%,0%,0.75);
         z-index: 10;
     }
 
