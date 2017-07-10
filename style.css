@@ -2,11 +2,18 @@
     margin-left: 15px !important;
 }
 
+.mob-nav {
+    display: block;
+}
+
 @media screen and (min-width: 750px) {
     .nav-justified {
         width: 50%;
     }
 
+    .mob-nav {
+        display: none;
+    }
 }
 
 #loader {
