@@ -48,7 +48,7 @@ if (!isset($_COOKIE['brand']) or !isset($_COOKIE['model'])) {
                 <li class="active"><a href="/repair/">Repair</a></li>
                 <li><a href="/services">Service</a></li>
                 <li class="dropdown">
-                    <a>
+                    <a href="/support/about/">
                         <div class="dropbtn">Support</div>
                     </a>
                     <div class="dropdown-content">

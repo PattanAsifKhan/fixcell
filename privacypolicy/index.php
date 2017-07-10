@@ -36,7 +36,7 @@
                 <li><a href="/repair/"><strong>Repair</strong></a></li>
                 <li><a href="/services"><strong>Service</strong></a></li>
                 <li class="dropdown">
-                    <a>
+                    <a href="/support/about/">
                         <div class="dropbtn"><strong>Support</strong></div>
                     </a>
                     <div class="dropdown-content">
