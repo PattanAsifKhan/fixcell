@@ -14,7 +14,7 @@ $(document).ready(function () {
         },
         {
             "q": "How does Fixcell work?",
-            "a": "Place a service request through the Repairs section or call us at +91-9949360232. We visit you, take your mobile device, diagnose it, fix it in your presence - making the process completely hassle free for you."
+            "a": "Place a service request through the Repairs section or call us at +91-9949360232. We visit you, diagnose it, fix it in your presence - making the process completely hassle free for you."
         },
         {
             "q": "What are the cities Fixcell operates in?",
