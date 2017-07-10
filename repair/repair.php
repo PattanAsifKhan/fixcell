@@ -70,6 +70,9 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
     setcookie("cart", '', time() - 1000);
     setcookie("cart", '', time() - 1000, '/');
 
+    setcookie("brand", $brand);
+    setcookie("model", $model);
+
     $conn = mysqli_connect("localhost", "root", "avi", "fixcell");
 
     $query = "SELECT type,price FROM services WHERE phone='$brand $model'";
@@ -97,14 +100,14 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
         <div class="col-md-8 col-sm-12">
             <h1 style="display: inline;">
                 <?php
+                $brand = $_GET['brand'];
                 echo $brand;
-                setcookie("brand", $brand);
                 ?>
             </h1>
             <h2 style="display: inline;">
                 <?php
+                $model = $_GET['model'];
                 echo $model;
-                setcookie("model", $model);
                 ?>
             </h2>
         </div>
