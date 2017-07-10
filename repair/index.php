@@ -131,9 +131,6 @@
 <script>
     $(document).ready(function () {
         $("#footer").load("/footer.html");
-        $("#brand-list").select2({
-            placeholder: "Loading..."
-        });
     });
 </script>
 </body>
