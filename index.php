@@ -134,7 +134,7 @@
 
 $conn = mysqli_connect('localhost', 'root', 'avi', 'fixcell');
 
-$query = "SELECT * FROM feedbacks where selected=1";
+$query = "SELECT * FROM feedbacks where selected='1'";
 
 $result = mysqli_query($conn, $query);
 $rows = array();

@@ -10,7 +10,7 @@ $(document).ready(function () {
     var questions = [
         {
             "q": "What is Fixcell?",
-            "a": "Fixcell is Hyderabad's&apos;s largest and most trusted smartphone service based company. We fix smartphones of all brands & we service at your doorstep."
+            "a": "Fixcell is Hyderabad&apos;s largest and most trusted smartphone service based company. We fix smartphones of all brands & we service at your doorstep."
         },
         {
             "q": "How does Fixcell work?",
