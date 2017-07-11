@@ -57,7 +57,11 @@
         </div>
     </div>
 </div>
-<div style="height: 100vh;margin-top: 25vh;">
+<center>
+    <img class="img-responsive" src="/images/advert.png" style="margin: 10px auto !important; height: 30vh;">
+</center>
+
+<div style="height: 70vh;margin-top: 15vh;">
     <div id="content-div" class="thumbnail center-block" style="margin: auto 10%;">
         <div class="form-group">
             <label for="brand-list">Brand</label>
@@ -74,6 +78,8 @@
         </div>
     </div>
 </div>
+
+
 
 <script>
     $brandSelect2 = $("#brand-list");
