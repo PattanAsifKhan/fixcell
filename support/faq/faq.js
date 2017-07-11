@@ -28,11 +28,6 @@ $(document).ready(function () {
             "q": "How much does Fixcell charge for its repair service? ",
             "a": "Fixcell charges Rs. 249/- for diagnosis. This is collected when the technician reaches your home.The price you see on the website is inclusive of this service charge and this gets adjusted in the final invoice. In case of any additional charges, customer would be intimated before mobile servicing is begun."
         },
-
-        {
-            "q": "Is there a service charge on Fixcell warranty repair?",
-            "a": "There is no service charge on concerns/complaints regarding repair that are raised within 3 days of delivery of product. However, we charge a nominal service fee of Rs.249 as service/labor charge if the complaint is raised after 3 days post-delivery."
-        },
         {
             "q": "How safe is my mobile/tablet with Fixcell? ",
             "a": "Fixcell guarantees the safety of your electronic devices by providing security insurance and undertaking blanket responsibility against any possible theft/loss caused while the mobile device is in its possession. However please note physical damage to screen often results damage to other components (sensor, motherboard, etc.) and Fixcell won't be held responsible for issues which are discovered during the process of repair. Repair/diagnosis of device might result in minor wear & tear, hence the device might not be returned in as-is state."
