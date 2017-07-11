@@ -10,7 +10,7 @@ $(document).ready(function () {
     var questions = [
         {
             "q": "What is Fixcell?",
-            "a": "Fixcell is India&apos;s largest and most trusted smartphone & tablet service network. We fix smartphones/tablets of all brands & make with the added convenience of free pickup and delivery."
+            "a": "Fixcell is Hyderabad's&apos;s largest and most trusted smartphone service based company. We fix smartphones of all brands & we service at your doorstep."
         },
         {
             "q": "How does Fixcell work?",
