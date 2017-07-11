@@ -39,7 +39,7 @@ if (!isset($_COOKIE['brand']) or !isset($_COOKIE['model'])) {
             </button>
             <a class="navbar-brand" href="/" style="height: auto;">
                 <img src="/images/fixcell.png" alt="fixcell"
-                     style="display: inline;"/><span><strong>ixcell</strong></span>
+                     style="display: inline;"/><span><strong></strong></span>
             </a>
         </div>
         <div class="collapse navbar-collapse" id="navbar">
