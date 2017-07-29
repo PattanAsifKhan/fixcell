@@ -54,11 +54,13 @@
 <div class="jumbotron">
     <div class="overlay text-center" style="display: table;">
         <div style="display: table-cell; vertical-align: middle; color: #fff;">
-                <img src="images/fixcellfirst.png" style="height: 70px;width: auto; padding-bottom: ">
-            <h4>FAST, CONVIENIENT, AFFORDABLE MOBILE&nbsp;REPAIRS AT YOUR DOOR  STEP</h4>
-            <a style="display: block;" href="/repair/">
-                <div class="btn btn-primary" style="font-size: 1.5em;  ">Fix it!</div>
-            </a>
+            <img src="images/fixcellfirst.png" style="height: 70px;width: auto; padding-bottom: ">
+            <h4>FAST, CONVIENIENT, AFFORDABLE MOBILE&nbsp;REPAIRS AT YOUR DOOR STEP</h4>
+            <div style="display: block;">
+                <a href="/repair/">
+                    <div class="btn btn-primary" style="font-size: 1.5em;  ">Fix it!</div>
+                </a>
+            </div>
         </div>
     </div>
     <video id="bgVideo" autoplay loop poster="/images/repair1.jpg">
@@ -231,9 +233,10 @@ echo "</script>";
 </body>
 </html>
 <style>
-    .home-nav a:hover{
+    .home-nav a:hover {
         background-color: orangered !important;
     }
+
     .jumbotron {
         background-color: #000000;
         background-image: url(/images/back3.jpg);
@@ -253,7 +256,7 @@ echo "</script>";
         position: absolute;
         top: 0;
         left: 0;
-        background-color: hsla(0,0%,0%,0.5);
+        background-color: hsla(0, 0%, 0%, 0.5);
         z-index: 10;
     }
 
@@ -298,7 +301,7 @@ echo "</script>";
         text-align: center;
     }
 
-    .panel-primary img{
-        height:50px;
+    .panel-primary img {
+        height: 50px;
     }
 </style>
