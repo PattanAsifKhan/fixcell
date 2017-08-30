@@ -176,7 +176,7 @@ if (!isset($_COOKIE['brand']) or !isset($_COOKIE['model'])) {
     }
 
     $(document).ready(function () {
-        $("#footer").load("/footer.html");
+        $("#footer").load("/footer.html?version=2");
     });
 
     $temp = getCookie('cart').split(",");

@@ -132,7 +132,7 @@ if (isset($_GET['brand']) and isset($_GET['model'])) {
 <div id="footer"></div>
 <script>
     $(document).ready(function () {
-        $("#footer").load("/footer.html");
+        $("#footer").load("/footer.html?version=2");
     });
 
     var selected_services = [];
